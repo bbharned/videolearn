@@ -1,0 +1,45 @@
+/* Global styles */
+.appear {
+    display: none;
+}
+.goAway,
+.goAwaySooner {
+    display:inline;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:992px) {
+.goAwaySooner {
+    display:none;
+} 
+}
+
+@media screen and (max-width:766px) {
+.appear {
+    display:inline;
+}
+.goAway {
+    display:none;
+}
+.logo {
+    padding-left: 12px;
+} 
+}
