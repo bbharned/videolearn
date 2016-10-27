@@ -6,6 +6,9 @@
 .goAwaySooner {
     display:inline;
 }
+.email-field {
+    margin-bottom: 10px;
+}
 
 
 
@@ -42,4 +45,8 @@
 .logo {
     padding-left: 12px;
 } 
+.email-field, .firstname-field,
+.password-field {
+    margin-bottom: 5px;
+}
 }
