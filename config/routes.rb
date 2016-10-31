@@ -9,4 +9,8 @@ resources :users, except: [:new]
 get 'dashboard', to: 'pages#dashboard'
 get 'lessonone', to: 'pages#lessonone'
 
+get 'login', to: 'sessions#new'
+post 'login', to: 'sessions#create'
+delete 'logout', to: 'sessions#destroy'
+
 end

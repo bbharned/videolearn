@@ -1,0 +1,16 @@
+<h1 class="page-header">Registered Users</h1>
+<div align="center"><%= will_paginate %></div>
+<% @users.each do |user| %>
+    
+    <div class="well well-sm" style="margin-bottom:5px;">
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.firstname } #{user.lastname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-2"><%= "50% complete" %></div>
+    <div class="col-sm-2" align="center"><%= link_to "Edit", edit_user_path(user) %></div>
+    <div class="col-sm-2" align="center"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></div>
+    </div>
+    </div>
+
+<% end %> 
+<div align="center"><%= will_paginate %></div>
