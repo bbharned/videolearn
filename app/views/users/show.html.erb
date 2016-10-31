@@ -1,0 +1,13 @@
+<h1 class="page-header"><%= "#{@user.firstname}" " " "#{@user.lastname}" %></h1>
+<h3><%= "#{@user.company}" %><span style="font-size: .7em;"> -- <%= link_to "#{@user.email}", url_for("mailto:#{@user.email}") %></span></h3>
+
+<br /><br />
+<h4 class="page-header">Videos Watched</h4>
+
+
+<br /><br />
+<h4 class="page-header">Quizes Completed</h4>
+
+
+<br /><br />
+<h4 class="page-header">Badges Earned</h4>
