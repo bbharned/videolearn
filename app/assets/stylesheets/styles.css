@@ -33,6 +33,10 @@
 .goAwaySooner {
     display:none;
 } 
+.hp-login-form,
+.hp-signup-form {
+    margin-bottom: 150px;
+}
 }
 
 @media screen and (max-width:766px) {
