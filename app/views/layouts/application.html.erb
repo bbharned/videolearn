@@ -10,9 +10,10 @@
 
   <body>
   <%= render 'layouts/navbar' %>
-  <div class="container">
+  <div class="container" style="min-height: 800px; padding-bottom: 100px;">
     <%= render 'layouts/messages' %>  
     <%= yield %>
   </div>
+  <%= render 'layouts/footer' %>
   </body>
 </html>

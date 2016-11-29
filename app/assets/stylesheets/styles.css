@@ -16,7 +16,60 @@
 
 
 
-
+/************************ Footer Specific CSS *************************/
+.footer-text {
+    font-size:.85em;
+}
+#footer a {
+    color:#FFFFFF;
+}
+#footer {
+    width:100%; background-color:#323232;  border-top:thin solid #5C5C5C;
+    font-family: 'Roboto', sans-serif; color:#ffffff; min-height:330px; 
+    padding-bottom:65px;
+}
+.lower-footer-boxes h4 {
+    line-height:30px !important; color:#878686;
+}
+.lower-footer-boxes p {
+    color:#D1CFCF; padding-left: 35px; 
+    padding-right:35px; font-size: .85em;
+}
+.lower-footer-boxes a {
+    color:#D1CFCF; text-transform:uppercase; font-weight:500;  
+}
+.lower-footer-boxes .lower-foot-box {
+    border-right:1px solid #878686; min-height: 120px;
+}
+.lower-footer-boxes .lower-foot-box:last-child {
+    border-right:none;
+}
+.footIcon1 {
+    background-color:#00457c; width:45px; height:45px; border-radius:50%;
+}
+.footIcon1:hover {
+    -webkit-box-shadow:0px 0px 12px 2px #02A5F7;
+    -moz-box-shadow:0px 0px 12px 2px #02A5F7;
+    -ms-box-shadow:0px 0px 12px 2px #02A5F7;
+    -o-box-shadow:0px 0px 12px 2px #02A5F7;
+    -chrome-box-shadow:0px 0px 12px 2px #02A5F7;
+    box-shadow:0px 0px 12px 2px #02A5F7;    
+}
+/* Disclaimer box css */
+#disclaimer {
+    width:100%; background-color:#000000; padding-top:15px; padding-bottom: 25px; margin-bottom: -20px !important;
+    color:#666666; 
+}
+.disLogo {
+    opacity:.4;
+}
+#disclaimer ul.nav a {
+    color:#666666;
+}
+#disclaimer ul.nav a:hover {
+    background-color:transparent; color:#FFFFFF;
+}
+/************************ END Footer Specific CSS *************************/
 
 
 
