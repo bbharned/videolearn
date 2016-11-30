@@ -11,7 +11,11 @@
             <%= f.password_field :password, class: "form-control",  placeholder: "Enter Password", autocomplete: "off" %>
         </div>
     </div>
-    
+    <div class="row">
+        <div class="col-sm-10">
+            <p align="right" style="margin-top:-13px; margin-bottom:10px; font-style:italic;"><%= link_to "forgot password?", new_password_reset_path %></p>
+        </div>
+    </div>
     <br />
     
         <div class="col-sm-3" style="padding-left: 0px; margin-left: 0px;">
