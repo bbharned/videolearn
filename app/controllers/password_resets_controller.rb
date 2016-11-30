@@ -35,6 +35,8 @@ class PasswordResetsController < ApplicationController
     end
   end
 
+
+
   private
 
     def get_user
@@ -45,13 +47,6 @@ class PasswordResetsController < ApplicationController
       params.require(:user).permit(:password)
     end
 
-    # Confirms a valid user.
-    # def valid_user
-    #   unless (@user && @user.activated? &&
-    #           @user.authenticated?(:reset, params[:id]))
-    #     redirect_to root_url
-    #   end
-    # end
 
     def valid_user
       if User.find_by(email: params[:email].downcase) == nil

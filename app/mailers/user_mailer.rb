@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-    default from: 'ThinManager Events'
+    default from: 'ThinManager Video Learning'
  
   def password_reset(user)
     @user = user
@@ -11,7 +11,7 @@ class UserMailer < ApplicationMailer
                          authentication: 'plain',
                          enable_starttls_auto: true
                           }
-    mail(to: @user.email, from: 'ThinManager Events', subject: 'Password Reset', delivery_method_options: delivery_options)
+    mail(to: @user.email, from: 'ThinManager Video Learning', subject: 'Password Reset', delivery_method_options: delivery_options)
   end
 
   
