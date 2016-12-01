@@ -9,13 +9,13 @@
 			<h4><%= "#{@current_user.firstname} #{@current_user.lastname}" %></h4>
 			<h5><%= "#{@current_user.company}" %></h5>
 			<h5><%= "#{@current_user.email}" %></h5>
-			<br/>
+			<hr/>
 			<h5 style="color:#777777;">Badges Earned</h5>
 			<div class="dash-badges">
-				<div class="badge"><img src="#" /></div>
-				<div class="badge"><img src="#" /></div>
-				<div class="badge"><img src="#" /></div>
-				<div class="badge"><img src="#" /></div>
+				<div class="d-badge" id="productivity-badge"><%= image_tag("badge-productivity.png") %></div>
+				<div class="d-badge" id="visualization-badge"><%= image_tag("badge-visualization.png") %></div>
+				<div class="d-badge" id="security-badge"><%= image_tag("badge-security.png") %></div>
+				<div class="d-badge" id="mobility-badge"><%= image_tag("badge-mobility.png") %></div>
 			</div>
 		</div>
 	</div>

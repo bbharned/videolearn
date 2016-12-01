@@ -1,5 +1,5 @@
 class PagesController < ApplicationController
-	#before_action :set_user, except: [:index]
+	before_action :require_user, except: [:index]
 
     def index
         @user = User.new
@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     end
 
     def dashboard
-    	redirect_to root_path if !logged_in?
+    	
     end
 
     def lessonone

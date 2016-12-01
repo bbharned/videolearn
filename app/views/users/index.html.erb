@@ -7,8 +7,12 @@
     <div class="col-sm-3"><%= link_to "#{user.firstname } #{user.lastname}", user_path(user) %></div>
     <div class="col-sm-3"><%= user.company %></div>
     <div class="col-sm-2"><%= "50% complete" %></div>
+    <% if logged_in? && (current_user == user || current_user.admin?)%>
     <div class="col-sm-2" align="center"><%= link_to "Edit", edit_user_path(user) %></div>
-    <div class="col-sm-2" align="center"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></div>
+	    <% if logged_in? && current_user.admin? %>
+	    	<div class="col-sm-2" align="center"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"} %></div>
+	    <% end %>
+    <% end %>
     </div>
     </div>
 
