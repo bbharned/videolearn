@@ -1,1 +1,29 @@
-<h1 class="page-header">Welcome!</h1>
+<h1 class="page-header">Welcome <%= @current_user.firstname %>!</h1>
+
+<div class="row">
+<div class="col-md-7">
+<div class="well" style="position: relative;">
+	<div class="row">
+		<div class="col-md-12">
+			<%= link_to "edit profile", edit_user_path(@current_user), class: "edit-link" %>
+			<h4><%= "#{@current_user.firstname} #{@current_user.lastname}" %></h4>
+			<h5><%= "#{@current_user.company}" %></h5>
+			<h5><%= "#{@current_user.email}" %></h5>
+			<br/>
+			<h5 style="color:#777777;">Badges Earned</h5>
+			<div class="dash-badges">
+				<div class="badge"><img src="#" /></div>
+				<div class="badge"><img src="#" /></div>
+				<div class="badge"><img src="#" /></div>
+				<div class="badge"><img src="#" /></div>
+			</div>
+		</div>
+	</div>
+</div>	
+</div>
+<div class="col-md-5">
+	<div class="intro-video">
+	<iframe src="https://www.youtube.com/embed/dCopRQ-6hTI" frameborder="0" allowfullscreen></iframe>
+	</div>
+</div>
+</div>
