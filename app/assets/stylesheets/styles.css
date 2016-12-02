@@ -37,6 +37,9 @@
 .d-badge#productivity-badge {
     opacity:1;
 }
+.new-vid-button {
+    float:right; margin-top: -65px;
+}
 
 
 

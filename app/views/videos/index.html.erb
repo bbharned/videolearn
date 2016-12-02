@@ -1,4 +1,7 @@
-<h1 class="page-header">Videos</h1>
+
+<h1 class="page-header">Training Videos</h1>
+<%= link_to "Add New Video", new_video_path, class: "btn btn-primary new-vid-button" %>
+
 
 <% @videos.each do |video| %>
 	<div class="well well-sm">
