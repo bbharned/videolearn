@@ -12,6 +12,9 @@
 .well {
     max-width: 100%; padding-left: 2% !important; padding-right: 2% !important;
 }
+.well-sm {
+    margin-bottom: 7px !important;
+}
 .edit-link {
     float: right;
 }

@@ -9,6 +9,7 @@ root 'pages#index'
 
 get 'signup', to: 'users#new'
 resources :users, except: [:new]
+resources :videos, except: [:show]
 
 get 'dashboard', to: 'pages#dashboard'
 get 'lessonone', to: 'pages#lessonone'
