@@ -9,6 +9,7 @@ class SessionsController < ApplicationController
         user = User.find_by(email: params[:session][:email].downcase)
         if user && user.authenticate(params[:session][:password])
             session[:user_id] = user.id
+            user.update_attribute(:lastlogin, Time.now)
             flash[:success] = "You are successfully logged in"
             redirect_to dashboard_path
         else

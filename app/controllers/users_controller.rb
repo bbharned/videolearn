@@ -1,5 +1,5 @@
 class UsersController < ApplicationController
-    before_action :require_user
+    before_action :require_user, except: [:new, :create]
     before_action :set_user, only: [:edit, :update, :show]
     before_action :require_same_user, only: [:edit, :update]
     
@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 
         if @user.save
             session[:user_id] = @user.id
+            @user.update_attribute(:lastlogin, Time.now)
             flash[:success] = "Welcome to ThinManager Video Learning #{@user.firstname}"
             redirect_to dashboard_path
         else
