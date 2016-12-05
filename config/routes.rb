@@ -19,4 +19,6 @@ post 'login', to: 'sessions#create'
 delete 'logout', to: 'sessions#destroy'
 
 resources :password_resets, only: [:new, :create, :edit, :update]
+
+resources :categories, except: [:destroy] 
 end
