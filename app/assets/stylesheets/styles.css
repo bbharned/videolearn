@@ -43,6 +43,9 @@
 .listing {
     list-style: none; text-align: center;
 }
+.listing .well {
+    margin-bottom: 6px;
+}
 .category-listing {
     font-weight:bold; text-transform: uppercase;
 }
