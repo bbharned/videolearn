@@ -49,6 +49,12 @@
 .category-listing {
     font-weight:bold; text-transform: uppercase;
 }
+.input_checkbox input {
+    width: auto !important; margin-top: 4px !important; 
+}
+.input_checkbox {
+    margin-right: 20px;
+}
 
 
 
