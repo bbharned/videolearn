@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161205160123) do
+ActiveRecord::Schema.define(version: 20161206150746) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
@@ -30,6 +30,11 @@ ActiveRecord::Schema.define(version: 20161205160123) do
     t.datetime "reset_sent_at"
     t.boolean  "admin",           default: false
     t.datetime "lastlogin"
+  end
+
+  create_table "video_categories", force: :cascade do |t|
+    t.integer "video_id"
+    t.integer "category_id"
   end
 
   create_table "videos", force: :cascade do |t|
