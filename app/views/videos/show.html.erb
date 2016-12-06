@@ -1,0 +1,22 @@
+<h1 class="page-header" style="margin-bottom: 5px;"><%= @video.name %></h1>
+<%= link_to "Main Dashboard", dashboard_path, class: "btn btn-primary to-dashboard-button" %>
+<% if @video.categories.any? %>
+	<p>Categories: &nbsp;<%= render @video.categories %></p>
+<% end %>
+<br />
+<div class="row">
+<div class="col-md-8 video-frame">
+	<iframe width="900" height="500" src=<%= "#{@video.url}" + "?&modestbranding=1" %> frameborder="0" allowfullscreen></iframe>
+</div>
+<div class="col-md-4">
+<h4>Resources</h4>
+<div class="lesson-resources">
+<div class="resource"><a href="#"><div class="well well-sm"><%= image_tag("icon-kb.png") %><span class="appear-sooner"><br /></span><span class="need-space">Knowledge Base</span></div></a></div>
+<div class="resource"><a href="#"><div class="well well-sm"><%= image_tag("icon-manuals.png") %><span class="appear-sooner"><br /></span><span class="need-space">Manuals</span></div></a></div>
+<div class="resource"><a href="#"><div class="well well-sm"><%= image_tag("icon-whitepapers.png") %><span class="appear-sooner"><br /></span><span class="need-space">White Papers</span></div></a></div>
+<div class="resource"><a href="#"><div class="well well-sm"><%= image_tag("icon-downloads.png") %><span class="appear-sooner"><br /></span><span class="need-space">Downloads</span></div></a></div>
+</div>
+</div>
+</div>
+<hr style="margin-top: 45px; margin-bottom: 25px;" />
+<h3>Take Quiz</h3>

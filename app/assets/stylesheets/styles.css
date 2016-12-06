@@ -1,5 +1,5 @@
 /* Global styles */
-.appear {
+.appear, .appear-sooner {
     display: none;
 }
 .goAway,
@@ -40,6 +40,9 @@
 .new-vid-button {
     float:right; margin-top: -65px;
 }
+.to-dashboard-button {
+    float:right; margin-top: -50px;
+}
 .listing {
     list-style: none; text-align: center;
 }
@@ -54,6 +57,18 @@
 }
 .input_checkbox {
     margin-right: 20px;
+}
+.video-frame iframe {
+    width:100%;
+}
+.resource .well {
+    margin-bottom: 15px !important;
+}
+.resource a {
+    font-size: 1.35em; color:#717171;
+}
+.need-space {
+    margin-left: 20px;
 }
 
 
@@ -142,7 +157,22 @@
    margin-left:0; margin-right:0; margin:auto; padding-left: 0;
    max-width: 96%;
 }
-
+.to-dashboard-button {
+    float:none; margin-top: 0px; margin-bottom: 25px;
+}
+.appear-sooner {
+    display:inline;
+}
+.resource {
+    float:left; width:23%; margin-left: 1%; margin-right: 1%;
+    text-align: center;
+}
+.resource a {
+    font-size: .75em;
+}
+.need-space {
+    margin-left:0px;
+}
 }
 
 @media screen and (max-width:766px) {

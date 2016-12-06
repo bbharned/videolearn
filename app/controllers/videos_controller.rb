@@ -1,6 +1,6 @@
 class VideosController < ApplicationController
 	before_action :is_admin?
-	before_action :set_video, only: [:edit, :update]
+	before_action :set_video, only: [:edit, :update, :show]
 	
 
 	def index
@@ -29,6 +29,10 @@ class VideosController < ApplicationController
         
     end
 
+
+    def show
+
+    end
 
 
     def update

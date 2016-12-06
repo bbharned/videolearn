@@ -7,7 +7,7 @@
 	<div class="well well-sm">
 		<div class="row">
 			<div class="col-md-12">
-				<div class="col-md-4"><%= video.name %></div>
+				<div class="col-md-4"><%= link_to "#{video.name}", video_path(video) %></div>
 				<div class="col-md-5"><%= video.url %></div>
 				<div class="col-md-2"><%= link_to "Edit Video Info", edit_video_path(video) %></div>
 				<div class="col-md-1"><%= link_to "Delete", video_path(video), method: :delete, data: {confirm: "Are you sure you want to delete this video?"}, style: "color:red;" %></div>
