@@ -8,6 +8,7 @@
 			<li class="category-listing">
 				<h4><%= link_to "#{category.name}", category_path(category) %></h4>
 			</li>
+			<li><small><%= pluralize(category.videos.count, "video") %></small></li>
 		</div>
 	</div>
 </ul>

@@ -47,7 +47,10 @@
     list-style: none; text-align: center;
 }
 .listing .well {
-    margin-bottom: 6px;
+    margin-bottom: 5px;
+}
+.listing li h4 {
+    margin-bottom: 0px;
 }
 .category-listing {
     font-weight:bold; text-transform: uppercase;

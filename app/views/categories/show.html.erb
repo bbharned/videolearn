@@ -1,0 +1,13 @@
+<h1 class="page-header"><%= @category.name %></h1>
+<%= link_to "All Categories", categories_path, class: "btn btn-primary new-vid-button" %>
+
+<% @category_videos.each do |cv| %>
+<div class="row">
+	
+	<div class="col-md-10 col-md-offset-1">
+	<div class="well well-sm">
+	<%= link_to cv.name, video_path(cv)  %>
+	</div>
+	</div>
+</div>
+<% end %>
