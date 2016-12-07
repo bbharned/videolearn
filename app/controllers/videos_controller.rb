@@ -1,5 +1,6 @@
 class VideosController < ApplicationController
-	before_action :is_admin?
+	before_action :require_user
+    before_action :is_admin?, only: [:index, :new, :create, :edit, :update, :destroy]
 	before_action :set_video, only: [:edit, :update, :show]
 	
 
@@ -64,8 +65,8 @@ class VideosController < ApplicationController
         end
 
         def is_admin?
-        	if !logged_in? || !current_user.admin
-        		flash[:danger] = "Only logged in admins can perform that operation"
+        	if !current_user.admin
+        		flash[:danger] = "Only admins can perform that operation"
         		redirect_to root_path
         	end
         end
