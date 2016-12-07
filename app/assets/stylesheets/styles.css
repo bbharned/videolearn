@@ -18,6 +18,12 @@
 .edit-link {
     float: right;
 }
+.edit-badge {
+    background-color:#999999; margin-bottom: 45px; margin-top: -12px;
+}
+.edit-badge a {
+    color:#FFFFFF;
+}
 .intro-video {
     width:100%; position: relative; 
 }
