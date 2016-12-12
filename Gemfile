@@ -8,6 +8,7 @@ gem 'twitter-bootstrap-rails'
 
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
+
 # Use Puma as the app server
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
