@@ -1,0 +1,31 @@
+<%= render 'shared/errors', obj: @question %>
+<%= form_for(@question, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+
+            <div class="form-group" style="max-width: 96%; margin: auto;">
+                <div class="row">
+                <div class="col-sm-2 col-sm-offset-3">
+                    <%= f.label :question %>
+                </div>
+                </div>
+                <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.text_field :name, class: "form-control", placeholder: "Enter Question", autofocus: true %>
+                </div>
+                </div>
+            </div>
+       
+
+        <br />
+        	<div class="row">
+	            <div class="col-sm-2 col-sm-offset-5" style="text-align: center; padding-left: 0;">
+	                <%= f.submit class: "btn btn-primary btn-lg" %>
+	            </div>
+            </div>
+    <% end %>
+    
+
+
+<br /><br />
+<div class="row" align="center">
+<%= link_to "[ Cancel & Return to All Quizzes ]", quizzes_path %>
+</div>
