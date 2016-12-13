@@ -13,10 +13,38 @@ class QuestionsController < ApplicationController
 	end
 
 
+	def create
+
+	    @question = Question.new(question_params)
+
+	    if @question.save
+	        flash[:success] = "Question was sucessfully created"
+	        redirect_to questions_path
+	    else
+	        render 'new'
+	    end
+
+	end
+
+	def edit
+		@question = Question.find(params[:id])
+	end 
+
+	def update
+		@question = Question.find(params[:id])
+		if @question.update(question_params)
+			flash[:success] = "Question was successfully updated"
+			redirect_to questions_path
+		else
+			render 'edit'
+		end
+	end
+
+
 
 private
 
-	def quiz_params
+	def question_params
         params.require(:question).permit(:name)
     end
 
