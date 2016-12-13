@@ -39,7 +39,7 @@ class QuizzesController < ApplicationController
 
 	def show
 		@quiz = Quiz.find(params[:id])
-		#@category_videos = @category.videos.all
+		@quiz_questions = @quiz.questions.all
 	end
 
 
@@ -47,7 +47,7 @@ class QuizzesController < ApplicationController
 private
 
     def quiz_params
-        params.require(:quiz).permit(:name)
+        params.require(:quiz).permit(:name, question_ids: [])
     end
 
     def require_admin

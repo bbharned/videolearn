@@ -45,7 +45,7 @@ class QuestionsController < ApplicationController
 private
 
 	def question_params
-        params.require(:question).permit(:name)
+        params.require(:question).permit(:name, answer_ids: [])
     end
 
     def require_admin

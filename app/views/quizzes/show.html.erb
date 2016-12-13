@@ -1,0 +1,11 @@
+<h1 class="page-header">Quiz: <%= "#{@quiz.name}" %></h1>
+
+<% @quiz_questions.each do |question| %>
+
+<p style="font-weight:bold;"><%= question.name %></p>
+
+<% question.answers.each do |answer| %>
+	<p>&nbsp;&nbsp;&nbsp;<%= answer.name %></p>
+<% end %>
+
+<% end %>
