@@ -1,6 +1,8 @@
 class Video < ActiveRecord::Base
 	has_many :video_categories
 	has_many :categories, through: :video_categories
+	has_one :video_quiz
+	has_one :quiz, through: :video_quiz
 	validates :name, presence: true, length: { minimum: 5, maximum: 100 }
 
 

@@ -19,4 +19,22 @@
 </div>
 </div>
 <hr style="margin-top: 45px; margin-bottom: 25px;" />
-<h3>Take Quiz</h3>
+<h4>Take Quiz</h4>
+<% if @quiz != nil %>
+	
+	<h2><%= @quiz.name %></h2>
+	<br />
+	<% @quiz.questions.each do |question| %>
+		<h5 style="padding-left:10px; margin-bottom: 0px;"><%= question.name %></h5><br />
+		<% question.answers.each do |answer| %>
+			<ul style="padding-left: 5%;">
+				<li style="<% if answer.correct %> color: green !important; <% end %> line-height: 1em;"><%= answer.name %></li>	
+			</ul>
+		<% end %>
+	<% end %>
+
+<% else %>
+	
+	<p style="color:orange;">There is currently no quiz for this lesson</p>
+
+<% end %>

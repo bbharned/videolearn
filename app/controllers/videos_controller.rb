@@ -32,7 +32,11 @@ class VideosController < ApplicationController
 
 
     def show
-
+        if @video.quiz
+            @quiz = @video.quiz
+        else
+            @quiz = nil
+        end
     end
 
 
