@@ -25,11 +25,13 @@ class QuizzesController < ApplicationController
 
 	def edit
 		@quiz = Quiz.find(params[:id])
+		@questions = @quiz.questions.all	
 	end 
 
 	def update
 		@quiz = Quiz.find(params[:id])
-		if @quiz.update(quiz_params)
+		@questions = @quiz.questions.all
+		if @quiz.update(quiz_params) && @questions.update(question_params)
 			flash[:success] = "Quiz name was successfully updated"
 			redirect_to quizzes_path
 		else
@@ -48,6 +50,14 @@ private
 
     def quiz_params
         params.require(:quiz).permit(:name, question_ids: [])
+    end
+
+    def question_params
+    	params.require(:question).permit(:name, answer_ids: [])
+    end
+
+    def answer_params
+    	params.require(:answer).permit(:name, :correct)
     end
 
     def require_admin

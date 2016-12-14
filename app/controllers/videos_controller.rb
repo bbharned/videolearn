@@ -10,6 +10,8 @@ class VideosController < ApplicationController
 
 	def new
 		@video = Video.new
+        @question = Question.new
+        @answer = Answer.new
 	end
 
 	def create
@@ -61,7 +63,7 @@ class VideosController < ApplicationController
 	private
 
         def video_params
-            params.require(:video).permit(:name, :url, category_ids: [])
+            params.require(:video).permit(:name, :url, category_ids: [], question_ids: [])
         end
 
         def set_video

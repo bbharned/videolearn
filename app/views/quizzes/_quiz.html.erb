@@ -13,8 +13,39 @@
                 </div>
                 </div>
             </div>
+            <br />
+            
+            <% if @quiz.questions.any? %>
+                
+                <% @quiz.questions.each do | question | %>
+                    <div class="form-group" style="max-width: 96%; margin: auto;">
+                    <div class="row">
+                    <div class="col-sm-2 col-sm-offset-4">
+                        <%= f.label :question %>
+                    </div>
+                    </div>
+                    <div class="row">
+                    <div class="col-sm-5 col-sm-offset-4">
+                        <%= fields_for question do |qs| %>
+                            <%= qs.text_field :name, class: "form-control" %><br />
+                        <% end %>
+                        <div class="row">
+                            <div class=" col-sm-8 col-sm-offset-1">
+                               
+                            </div>    
+                        </div>
+                    </div>
+                    </div>
+                </div>
+                <% end %>
 
-        <br />
+            <% else %>
+               
+                <p>I have no questions</p>
+            
+            <% end %>
+
+        <br /><br /><br />
         	<div class="row">
 	            <div class="col-sm-2 col-sm-offset-5" style="text-align: center; padding-left: 0;">
 	                <%= f.submit class: "btn btn-primary btn-lg" %>
