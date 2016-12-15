@@ -25,13 +25,15 @@ class QuizzesController < ApplicationController
 
 	def edit
 		@quiz = Quiz.find(params[:id])
-		@questions = @quiz.questions.all	
+		@questions = @quiz.questions.all 
+		@availableq = Question.where.not(id: @questions)
+		#@teams = Team.where.not(name: @team_exclude_list)
 	end 
 
 	def update
 		@quiz = Quiz.find(params[:id])
 		@questions = @quiz.questions.all
-		if @quiz.update(quiz_params) && @questions.update(question_params)
+		if @quiz.update(quiz_params)
 			flash[:success] = "Quiz name was successfully updated"
 			redirect_to quizzes_path
 		else
@@ -52,13 +54,13 @@ private
         params.require(:quiz).permit(:name, question_ids: [])
     end
 
-    def question_params
-    	params.require(:question).permit(:name, answer_ids: [])
-    end
+    # def question_params
+    # 	params.require(:question).permit(:name, answer_ids: [])
+    # end
 
-    def answer_params
-    	params.require(:answer).permit(:name, :correct)
-    end
+    # def answer_params
+    # 	params.require(:answer).permit(:name, :correct)
+    # end
 
     def require_admin
 		if !logged_in? || (logged_in? && !current_user.admin?)

@@ -3,7 +3,7 @@
 
             <div class="form-group" style="max-width: 96%; margin: auto;">
                 <div class="row">
-                <div class="col-sm-2 col-sm-offset-3">
+                <div class="col-sm-3 col-sm-offset-3">
                     <%= f.label :quiz %>
                 </div>
                 </div>
@@ -15,35 +15,35 @@
             </div>
             <br />
             
-            <% if @quiz.questions.any? %>
-                
-                <% @quiz.questions.each do | question | %>
-                    <div class="form-group" style="max-width: 96%; margin: auto;">
-                    <div class="row">
-                    <div class="col-sm-2 col-sm-offset-4">
-                        <%= f.label :question %>
-                    </div>
-                    </div>
-                    <div class="row">
-                    <div class="col-sm-5 col-sm-offset-4">
-                        <%= fields_for question do |qs| %>
-                            <%= qs.text_field :name, class: "form-control" %><br />
-                        <% end %>
-                        <div class="row">
-                            <div class=" col-sm-8 col-sm-offset-1">
-                               
-                            </div>    
-                        </div>
-                    </div>
-                    </div>
+           <div class="form-group" style="max-width: 96%; margin: auto;">
+             <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <%= f.label "Current Quiz Questions" %>
                 </div>
-                <% end %>
-
-            <% else %>
-               
-                <p>I have no questions</p>
-            
-            <% end %>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.collection_check_boxes :question_ids, @questions.all, :id, :name do |cb| %>
+                        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                    <% end %>
+                </div>
+            </div>
+           </div>
+           <br /><br />
+           <div class="form-group" style="max-width: 96%; margin: auto;">
+             <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <%= f.label "Available Quiz Questions" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                    <%= f.collection_check_boxes :question_ids, @availableq.all, :id, :name do |cb| %>
+                        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                    <% end %>
+                </div>
+            </div>
+           </div>
 
         <br /><br /><br />
         	<div class="row">

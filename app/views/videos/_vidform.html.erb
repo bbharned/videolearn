@@ -32,6 +32,19 @@
                     <% end %>
                 </div>
             </div>
+            <br />
+            <div class="form-group">
+                <div class="col-sm-12">
+                    <%= f.label "Select Quiz" %>
+                </div>
+                <div class="col-sm-12">
+
+                    <%= f.collection_check_boxes :quiz_ids, Quiz.all, :id, :name do |cb| %>
+                        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                    <% end %>
+                    
+                </div>
+            </div>
             
         <br />
         

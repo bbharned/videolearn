@@ -1,5 +1,5 @@
 class Answer < ActiveRecord::Base
-	has_one :question_answer
-	has_one :question, through: :question_answer
+	has_many :question_answers
+	has_many :questions, through: :question_answers
 
 end
