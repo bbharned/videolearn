@@ -1,0 +1,30 @@
+<h1 class="page-header">Quiz Question Answers</h1>
+<%= link_to "Add New Answer", new_answer_path, class: "btn btn-primary new-vid-button" %>
+
+
+<% @answers.each do |answer| %>
+<div class="well well-sm">
+<div class="row">
+	<div class="col-sm-4">Quiz Question:</div>
+	<div class="col-sm-4"><span style="font-weight:bold;">Answer:</span></div>
+	<div class="col-sm-1"><span style="font-weight:bold;">Correct?</span></div>
+</div>
+<div class="row">
+	<div class="col-sm-4">
+		<% if answer.questions.any? %>
+			<% answer.questions.each do |question| %>
+				<%= link_to question.name, edit_question_path(question) %>
+			<% end %>
+		<% end %>
+	</div>
+	<div class="col-sm-4"><%= answer.name %></div>
+	<div class="col-sm-1"><%= answer.correct %></div>
+	<div class="col-sm-1 col-sm-offset-1">
+	<%= link_to "edit", edit_answer_path(answer) %>
+	</div>
+	
+	<div class="col-sm-1"><%= link_to "Delete", answer_path(answer), method: :delete, data: {confirm: "Are you sure you want to delete this answer?"}, style: "color:red;" %></div>
+	
+</div>
+</div>
+<% end %> 

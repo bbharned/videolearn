@@ -12,6 +12,7 @@ resources :users, except: [:new]
 resources :videos
 resources :quizzes
 resources :questions
+resources :answers, except: [:show]
 
 get 'dashboard', to: 'pages#dashboard'
 get 'lessonone', to: 'pages#lessonone'

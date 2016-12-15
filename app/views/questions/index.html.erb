@@ -1,1 +1,25 @@
 <h1 class="page-header">Quiz Questions</h1>
+
+<% Quiz.all.each do |quiz| %>
+	<h3><%= quiz.name %></h3>
+	<% quiz.questions.each do |question| %>
+	<div class="well well-sm">
+		<div class="row">
+			<div class="col-sm-8">
+				<h5><%= question.name %></h5>
+				<ul>
+				<% if question.answers.any? %>
+					<% question.answers.each do |answer| %>
+						<li class="qqanswer-li" style="<% if answer.correct %>color:green;<% end %>"><%= answer.name %></li>
+					<% end %>
+				<% end %>
+				</ul>
+			</div>
+		</div>
+	</div>
+	<% end %>
+	<br />
+<% end %>
+
+
+

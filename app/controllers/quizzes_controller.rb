@@ -8,6 +8,12 @@ class QuizzesController < ApplicationController
 
 	def new
 		@quiz = Quiz.new
+		@availableq = Question.where.not(id: @questions)
+		if @quiz.questions.any?
+			@questions = @quiz.questions.all 
+		else 
+			@questions = nil
+		end
 	end
 
 	def create

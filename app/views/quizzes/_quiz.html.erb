@@ -23,8 +23,10 @@
             </div>
             <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                    <%= f.collection_check_boxes :question_ids, @questions.all, :id, :name do |cb| %>
-                        <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                   <% if @questions != nil %>
+                        <%= f.collection_check_boxes :question_ids, @questions.all, :id, :name do |cb| %>
+                            <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                        <% end %>
                     <% end %>
                 </div>
             </div>
