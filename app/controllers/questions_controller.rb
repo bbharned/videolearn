@@ -28,6 +28,10 @@ class QuestionsController < ApplicationController
 
 	def edit
 		@question = Question.find(params[:id])
+		@hasanswers = QuestionAnswer.all
+		# @allanswers = Answer.all
+		@answers = @question.answers.all
+		@availablea = Answer.where.not(id: @answers) 
 	end 
 
 	def update

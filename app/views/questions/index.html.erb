@@ -1,11 +1,12 @@
 <h1 class="page-header">Quiz Questions</h1>
+<%= link_to "Add New Question", new_question_path, class: "btn btn-primary new-vid-button" %>
 
 <% Quiz.all.each do |quiz| %>
 	<h3><%= quiz.name %></h3>
 	<% quiz.questions.each do |question| %>
 	<div class="well well-sm">
 		<div class="row">
-			<div class="col-sm-8">
+			<div class="col-sm-10">
 				<h5><%= question.name %></h5>
 				<ul>
 				<% if question.answers.any? %>
@@ -15,6 +16,8 @@
 				<% end %>
 				</ul>
 			</div>
+			<div class="col-sm-1" align="right"><%= link_to "Edit", edit_question_path(question) %></div>
+			<div class="col-sm-1" align="right"><%= link_to "Delete", question_path(question), method: :delete, data: {confirm: "Are you sure you want to delete this question?"}, style: "color:red;" %></div>
 		</div>
 	</div>
 	<% end %>

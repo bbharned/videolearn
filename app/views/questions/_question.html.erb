@@ -13,9 +13,42 @@
                 </div>
                 </div>
             </div>
-
+            <br />
+            <div class="form-group" style="max-width: 96%; margin: auto;">
+             <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <%= f.label "Current Question's Answers" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                   <% if @answers != nil %>
+                        <%= f.collection_check_boxes :answer_ids, @answers.all, :id, :name do |cb| %>
+                            <% cb.label(class: "checkbox-inline input_checkbox col-sm-12", style: "margin:0px;") {cb.check_box(class: "checkbox") + cb.text} %>
+                        <% end %>
+                    <% end %>
+                </div>
+            </div>
+           </div>
+           <br /><br />
+           <div class="form-group" style="max-width: 96%; margin: auto;">
+             <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <%= f.label "Available Question Answers" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                <% if @availablea != nil %>
+                    <%= f.collection_check_boxes :answer_ids, @availablea.all, :id, :name do |cb| %>
+                        <% cb.label(class: "checkbox-inline input_checkbox col-sm-12", style: "margin:0px;") {cb.check_box(class: "checkbox") + cb.text} %>
+                    <% end %>
+                <% end %>
+                </div>
+            </div>
+           </div>
             
-        <br />
+        <br /><br /><br />
         	<div class="row">
 	            <div class="col-sm-2 col-sm-offset-5" style="text-align: center; padding-left: 0;">
 	                <%= f.submit class: "btn btn-primary btn-lg" %>
@@ -27,5 +60,5 @@
 
 <br /><br />
 <div class="row" align="center">
-<%= link_to "[ Cancel & Return to All Quizzes ]", quizzes_path %>
+<%= link_to "[ Cancel & Return to All Questions ]", questions_path %>
 </div>
