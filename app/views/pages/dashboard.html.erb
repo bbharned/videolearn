@@ -42,6 +42,36 @@
 		<%= image_tag("icon-mobility.png") %> <span class="goAway">-</span> <span class="appear"><br /></span> Mobility
 	</div>
 </div>
-<table width="100%" style="margin-top: 4px;">
-	
+<table class="dash-video-table" width="100%" style="margin-top: 4px;">
+	<tr class="table-heading">
+		<th width="15%"></th>
+		<th width="65%">Name</th>
+		<th width="10%" class="centered">Watched</th>
+		<th width="10%" class="centered">Quiz<br />Taken</th>
+	</tr>
+	<% @videos.each do |video| %>
+		<tr class="table-rows">
+			<td class="cat-icon">
+				<% video.categories.each do |cat| %>
+					<% if cat.name == "Productivity" %>
+						<%= image_tag("icon-productivity.png") %>
+					<% elsif cat.name == "Visualization" %>
+						<%= image_tag("icon-visualization.png") %>
+					<% elsif cat.name == "Security" %>
+						<%= image_tag("icon-security.png") %>
+					<% elsif cat.name == "Mobility" %>
+						<%= image_tag("icon-mobility.png") %>
+					<% else %>
+
+					<% end %>
+				<% end %>
+			</td>
+			<td><%= link_to video.name, video_path(video) %></td>
+			<td class="centered"><%= image_tag("checked.png") %></td>
+			<td class="centered"><%= image_tag("checked.png") %></td>
+		</tr>
+	<% end %>
 </table>
+
+
+<%= render 'layouts/ctas' %>

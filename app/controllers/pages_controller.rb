@@ -10,12 +10,7 @@ class PagesController < ApplicationController
     	@videos = Video.all
     end
 
-    def lessonone
-
-    end
-
-
-
+    
 
     private
 

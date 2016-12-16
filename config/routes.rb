@@ -15,7 +15,6 @@ resources :questions
 resources :answers, except: [:show]
 
 get 'dashboard', to: 'pages#dashboard'
-get 'lessonone', to: 'pages#lessonone'
 
 get 'login', to: 'sessions#new'
 post 'login', to: 'sessions#create'

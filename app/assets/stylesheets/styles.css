@@ -87,9 +87,44 @@
 .qqanswer-li {
     line-height: 20px;
 }
+.dash-video-table .table-heading {
+    background-color: #333333; color:#FFFFFF;  
+}
+.dash-video-table .table-heading th {
+    padding-top: 8px; padding-bottom: 8px; 
+    font-size: .75em; line-height: .99em;
+}
+.dash-video-table .table-rows {
+    border: 1px solid #999999;
+}
+.dash-video-table tr.table-rows:nth-child(odd) {background: #E9E9E9;}
+.dash-video-table .table-rows td {
+    padding-top: 5px; padding-bottom: 5px; font-weight:normal;
+}
+.centered {
+    text-align: center; 
+}
+.cat-icon {
+    text-align: center;
+}
 
 
 
+
+
+
+
+/**** CTA Span at bottom *****/
+.cta-span {width:100%; margin-top:100px; margin-bottom:50px;}
+.cta-span .well-sm {
+    padding: 20px 20px !important;
+    -webkit-box-shadow:1px 1px 2px 1px #BFBFBF; 
+    -ms-box-shadow:1px 1px 2px 1px #BFBFBF; -moz-box-shadow:1px 1px 2px 1px #BFBFBF;
+    -o-box-shadow:1px 1px 2px 1px #BFBFBF; box-shadow:1px 1px 2px 1px #BFBFBF; 
+}
+.link-right {text-align:right !important; margin-bottom:0px !important; text-decoration:underline;}
+#goGetCertified {opacity:.35;}
+/**** End CTA Span at bottom *****/
 
 
 
