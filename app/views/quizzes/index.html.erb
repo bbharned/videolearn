@@ -2,8 +2,11 @@
 <%= link_to "Add New Quiz", new_quiz_path, class: "btn btn-primary new-vid-button" %>
 
 <% @quizzes.each do |quiz| %>
-
-	<h4><%= quiz.name %></h4>
+	<div class="row">
+		<div class="col-sm-12">
+			<h4><%= quiz.name %> &nbsp;<span style="font-size:.65em;">( <%= link_to "Edit", edit_quiz_path(quiz) %> )</span></h4>
+		</div>
+	</div>
 	<div class="well well-sm">
 		
 		<% quiz.questions.each do |question| %>

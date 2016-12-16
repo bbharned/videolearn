@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     end
 
     def dashboard
-    	
+    	@videos = Video.all
     end
 
     def lessonone
