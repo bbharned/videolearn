@@ -3,6 +3,23 @@
 
 <% @quizzes.each do |quiz| %>
 
-<p><%= quiz.name %></p>
+	<h4><%= quiz.name %></h4>
+	<div class="well well-sm">
+		
+		<% quiz.questions.each do |question| %>
+			<div class="row">
+				<h5 style="padding-left:20px;"><%= question.name %></h5>
+			</div>
+			<div class="row">
+				<ul style="padding-left: 50px;">
+				<% question.answers.each do |answer| %>
+					<li style="<% if answer.correct %>color:green;<% end %>"><%= answer.name %></li>
+				<% end %>
+				</ul>
+			</div>
+		<% end %>
+		
+	</div>
+	<br />
 
 <% end %>

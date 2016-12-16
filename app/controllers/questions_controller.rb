@@ -49,7 +49,7 @@ class QuestionsController < ApplicationController
 private
 
 	def question_params
-        params.require(:question).permit(:name, answer_ids: [])
+        params.require(:question).permit(:name, answer_ids: [], quiz_ids:[])
     end
 
     def require_admin

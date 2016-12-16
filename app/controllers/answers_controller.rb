@@ -59,7 +59,7 @@ class AnswersController < ApplicationController
 	private
 
 	def answer_params
-		params.require(:answer).permit(:name, :correct)
+		params.require(:answer).permit(:name, :correct, question_ids:[])
 	end
 
 	def require_admin

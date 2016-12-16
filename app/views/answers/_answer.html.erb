@@ -21,6 +21,27 @@
                     </div>  
                 </div>
             </div>
+
+            <br />
+            <div class="form-group" style="max-width: 96%; margin: auto;">
+             <div class="row">
+                <div class="col-sm-3 col-sm-offset-3">
+                    <%= f.label "Assign to Question" %>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-sm-6 col-sm-offset-3">
+                   
+                        <%= f.collection_check_boxes :question_ids, Question.all, :id, :name do |cb| %>
+                            <% cb.label(class: "checkbox-inline input_checkbox col-sm-12", style: "margin:0px;") {cb.check_box(class: "checkbox") + cb.text} %>
+                        <% end %>
+                    
+                </div>
+            </div>
+           </div>
+
+
+            
             
         <br /><br />
         	<div class="row">
