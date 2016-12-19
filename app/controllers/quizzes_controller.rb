@@ -47,17 +47,36 @@ class QuizzesController < ApplicationController
 		end
 	end
 
+	# def quiz_submit
+ #        @video = Video.find(params[:video_id])
+ #        @quiz = Quiz.find(params[:quiz_id])
+ #        flash[:success] = "You Rocked That quiz!"
+ #        redirect_to dashboard_path
+ #    end
+
 	def show
 		@quiz = Quiz.find(params[:id])
 		@quiz_questions = @quiz.questions.all
 	end
+
+	def quiz_me
+        @video = Video.find(params[:id])
+        flash[:success] = "You Rocked That quizity quiz!"
+        redirect_to dashboard_path
+    end
+
+    def quiz_submit
+        @video = Video.find(params[:id])
+        flash[:success] = "You Rocked That quiz!"
+        redirect_to dashboard_path
+    end
 
 
 
 private
 
     def quiz_params
-        params.require(:quiz).permit(:name, question_ids: [])
+        params.require(:quiz).permit(:name, question_ids: [], video_ids:[], answer_ids:[])
     end
 
     # def question_params

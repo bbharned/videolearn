@@ -22,18 +22,7 @@
 <h4>Take Quiz</h4>
 <% if @quizzes != nil %>
 	
-	<% @quizzes.each do |quiz| %>
-		<h2><%= quiz.name %></h2>
-		<% quiz.questions.each do |question| %>
-			<h5 style="padding-left:10px; margin-bottom: 0px; margin-top: 30px;"><%= question.name %></h5><br />
-			<% question.answers.each do |answer| %>
-				<ul style="padding-left: 5%;">
-					<li style="<% if answer.correct %> color: green !important; <% end %> line-height: 1em;"><%= answer.name %></li>	
-				</ul>
-			<% end %>
-		<% end %>
-
-	<% end %>
+	<%= render 'quiz_form' %>
 
 	
 	

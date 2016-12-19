@@ -37,7 +37,7 @@ class VideosController < ApplicationController
         if @video.quizzes.any?
             @quizzes = @video.quizzes
         else
-            @quiz = nil
+            @quizzes = nil
         end
     end
 
@@ -51,6 +51,14 @@ class VideosController < ApplicationController
         end
     end
 
+    def quiz_submit
+        @video = Video.find(params[:id])
+        @quiz = Quiz.find(params[:quiz_id])
+        @user = User.find(current_user.id)
+        flash[:success] = "You rocked that quiz!!"
+        redirect_to dashboard_path
+    end
+
 
     def destroy
         @video = Video.find(params[:id])
@@ -59,11 +67,13 @@ class VideosController < ApplicationController
         redirect_to videos_path
     end
 
+    
+
 
 	private
 
         def video_params
-            params.require(:video).permit(:name, :url, category_ids: [], quiz_ids:[])
+            params.require(:video).permit(:name, :url, category_ids: [], quiz_ids:[], question_ids:[], answer_ids:[])
         end
 
         def set_video

@@ -1,0 +1,21 @@
+<% @video.quizzes.each do |quiz| %>
+<%= form_tag do  %>
+<h2 style="text-transform: capitalize;"><%= label_tag "#{quiz.name}" %></h2><br />
+	<% quiz.questions.each do |question| %>
+		<%= fields_for question do %>
+			<h4><%= label_tag "#{question.name}" %></h4>
+				<ul class="quiz-options">
+				<% question.answers.each do |answer| %>
+					<li><%= radio_button_tag(question.id, answer.name) %> &nbsp; <%= label_tag(:selection, "#{answer.name}") %></li>
+				<% end %>
+				</ul>
+		<% end %>
+		<br />
+	<%= hidden_field_tag(:video_id, @video.id) %>
+	<%= hidden_field_tag(:quiz_id, quiz.id) %>
+	<%= hidden_field_tag(:quiz, quiz) %>
+	<% end %>
+	
+	<%= submit_tag "Submit", action: :quiz_submit, data: {confirm: "Are you sure you are ready to submit your answers?"}, class: "btn btn-primary btn-lg" %>
+<% end %>
+<% end %>

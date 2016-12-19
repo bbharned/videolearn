@@ -107,6 +107,12 @@
 .cat-icon {
     text-align: center;
 }
+ul.quiz-options {
+    list-style:none;
+}
+ul.quiz-options li {
+    font-weight: lighter !important;
+}
 
 
 
