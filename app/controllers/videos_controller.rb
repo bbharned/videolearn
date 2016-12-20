@@ -37,7 +37,7 @@ class VideosController < ApplicationController
     def show
         if @video.quizzes.any?
             @quizzes = @video.quizzes
-            @count = nil
+            @alittlehelp = nil
         else
             @quizzes = nil
         end
@@ -53,7 +53,11 @@ class VideosController < ApplicationController
         end
     end
 
+
+
+
     def quiz_submit
+        
         @video = Video.find(params[:id])
         @quiz = Quiz.find(params[:quiz_id])
         @questions = @quiz.questions
@@ -65,21 +69,20 @@ class VideosController < ApplicationController
             end
         end
         
-        
-        if @qanswers.count == @questions.count
-            puts @qanswers
-            flash[:success] = "You rocked that quiz!! #{@qanswers.count} questions answered."
+        @answers = Answer.where(name: @qanswers)
+
+        if (@qanswers.count == @questions.count)
+            puts @answers
+            flash[:success] = "You rocked that quiz!!"
             redirect_to dashboard_path
         else
             flash[:danger] = "You didnt answer all the questions."
-            @alittlehelp = true
             redirect_to video_path(@video)
         end
 
-        
-    
-        
     end
+
+
 
 
     def destroy
