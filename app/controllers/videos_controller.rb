@@ -2,6 +2,7 @@ class VideosController < ApplicationController
 	before_action :require_user
     before_action :is_admin?, only: [:index, :new, :create, :edit, :update, :destroy]
 	before_action :set_video, only: [:edit, :update, :show]
+    before_action :quiz_answers, only: [:quiz_submit]
 	
 
 	def index
@@ -36,6 +37,7 @@ class VideosController < ApplicationController
     def show
         if @video.quizzes.any?
             @quizzes = @video.quizzes
+            @count = nil
         else
             @quizzes = nil
         end
@@ -54,9 +56,29 @@ class VideosController < ApplicationController
     def quiz_submit
         @video = Video.find(params[:id])
         @quiz = Quiz.find(params[:quiz_id])
+        @questions = @quiz.questions
         @user = User.find(current_user.id)
-        flash[:success] = "You rocked that quiz!!"
-        redirect_to dashboard_path
+        @qanswers = []
+        if params[:Question]
+            params[:Question].each do | q, a |
+                @qanswers.push(a)
+            end
+        end
+        
+        
+        if @qanswers.count == @questions.count
+            puts @qanswers
+            flash[:success] = "You rocked that quiz!! #{@qanswers.count} questions answered."
+            redirect_to dashboard_path
+        else
+            flash[:danger] = "You didnt answer all the questions."
+            @alittlehelp = true
+            redirect_to video_path(@video)
+        end
+
+        
+    
+        
     end
 
 
@@ -85,6 +107,12 @@ class VideosController < ApplicationController
         		flash[:danger] = "Only admins can perform that operation"
         		redirect_to root_path
         	end
+        end
+
+        def quiz_answers
+            if params[:Question]
+                params[:Question][:id].to_a
+            end
         end
 
 end
