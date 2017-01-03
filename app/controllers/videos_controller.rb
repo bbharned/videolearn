@@ -37,7 +37,6 @@ class VideosController < ApplicationController
     def show
         if @video.quizzes.any?
             @quizzes = @video.quizzes
-            @alittlehelp = nil
         else
             @quizzes = nil
         end
@@ -57,28 +56,64 @@ class VideosController < ApplicationController
 
 
     def quiz_submit
-        
         @video = Video.find(params[:id])
         @quiz = Quiz.find(params[:quiz_id])
         @questions = @quiz.questions
         @user = User.find(current_user.id)
-        @qanswers = []
-        if params[:Question]
-            params[:Question].each do | q, a |
-                @qanswers.push(a)
-            end
-        end
-        
         @answers = Answer.where(name: @qanswers)
 
-        if (@qanswers.count == @questions.count)
-            puts @answers
-            flash[:success] = "You rocked that quiz!!"
-            redirect_to dashboard_path
-        else
+        if (@qanswers.count != @questions.count)
             flash[:danger] = "You didnt answer all the questions."
             redirect_to video_path(@video)
+        else 
+            check_quiz(@answers)
         end
+            # @answers.each do |answer|
+            #     if !answer.correct
+            #         @alittlehelp += 1
+            #         # flash[:danger] = "Oops, you got something wrong"
+            #     else
+            #        #@alittlehelp
+            #        # flash[:success] = "You rocked that quiz!!"
+            #        # redirect_to (dashboard_path)
+            #        # return 
+            #     end
+            #     if @alittlehelp != 0
+            #        flash[:danger] = "Oops, you got something wrong"
+            #     else
+            #        flash[:success] = "You rocked that quiz!!"
+            #        #redirect_to (dashboard_path)
+            #     end
+            # end
+            # render 'show'
+        #end
+            
+    
+        
+
+        # @qanswers = []
+        # if params[:Question]
+        #     params[:Question].each do | q, a |
+        #         @qanswers.push(a)
+        #     end
+        # end
+        
+        # @answers = Answer.where(name: @qanswers)
+        # @answers.each do |answer|
+        #     if answer.correct
+        #         flash[:success] = "You rocked that quiz!!"
+        #         redirect_to dashboard_path
+        #     end
+        # end
+
+        # if (@qanswers.count == @questions.count)
+        #     puts @answers
+        #     flash[:success] = "You rocked that quiz!!"
+        #     redirect_to dashboard_path
+        # else
+        #     flash[:danger] = "You didnt answer all the questions."
+        #     redirect_to video_path(@video)
+        # end
 
     end
 
@@ -113,8 +148,29 @@ class VideosController < ApplicationController
         end
 
         def quiz_answers
+            @qanswers = []
             if params[:Question]
                 params[:Question][:id].to_a
+                params[:Question].each do | q, a |
+                    @qanswers.push(a)
+                end
+            end
+        end
+
+        def check_quiz(answers)
+            @helpcount = 0
+            answers.each do |answer|
+                if !answer.correct
+                    @helpcount += 1
+                end
+            end
+            if @helpcount > 0
+                flash[:danger] = "Oops, looks like you answered something wrong, please check your answers and try again."
+                redirect_to video_path(@video)
+                return @helpcount
+            else
+                flash[:success] = "You totally rocked that quiz!!"
+                redirect_to dashboard_path
             end
         end
 
