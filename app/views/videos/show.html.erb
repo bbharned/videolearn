@@ -6,7 +6,7 @@
 <br />
 <div class="row">
 <div class="col-md-8 video-frame">
-	<iframe width="900" height="500" src=<%= "#{@video.url}" + "?&modestbranding=1" %> frameborder="0" allowfullscreen></iframe>
+	<iframe id="player" width="900" height="500" src=<%= "#{@video.url}" + "&modestbranding=1" %> frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="col-md-4">
 <h4>Resources</h4>
@@ -31,3 +31,15 @@
 	<p style="color:orange;">There is currently no quiz for this lesson</p>
 
 <% end %>
+
+<script type="text/javascript">
+
+$("#player").on('load', function() {
+
+	// add user_video save here.
+	<% puts "video loaded" %> 
+
+});
+
+</script>
+
