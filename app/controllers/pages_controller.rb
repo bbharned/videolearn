@@ -8,6 +8,7 @@ class PagesController < ApplicationController
 
     def dashboard
     	@videos = Video.all
+    	@user = User.find(current_user.id)
     end
 
     

@@ -6,6 +6,8 @@ class User < ActiveRecord::Base
     validates :email, confirmation: true, :on => :create
     validates :email_confirmation, presence: true, :on => :create
     validates :password_confirmation, presence: true, :on => :create
+    has_many :user_quizzes
+    has_many :quizzes, through: :user_quizzes
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
     validates :email,  presence: true,  length: { maximum: 105 },

@@ -6,6 +6,8 @@ class Quiz < ActiveRecord::Base
 	validates :name, presence: true, length: { minimum: 5, maximum: 75 } 
 	validates_uniqueness_of :name
 	accepts_nested_attributes_for :questions
+	has_many :user_quizzes
+	has_many :users, through: :user_quizzes
 
 
 end

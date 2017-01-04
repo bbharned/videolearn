@@ -113,6 +113,8 @@ class VideosController < ApplicationController
         end
 
         def check_quiz(answers)
+            @quiz = Quiz.find(params[:quiz_id])
+            @user = User.find(current_user.id)
             @helpcount = 0
             answers.each do |answer|
                 if !answer.correct
@@ -124,8 +126,20 @@ class VideosController < ApplicationController
                 redirect_to video_path(@video)
             else
                 # add quiz recording to table here!!!
-                flash[:success] = "You totally rocked that quiz!!"
-                redirect_to dashboard_path
+                @query = UserQuiz.where(user_id: @user.id, quiz_id: @quiz.id)
+                if @query == []
+                    @user_quiz = UserQuiz.new(user_id: @user.id, quiz_id: @quiz.id)
+                    if @user_quiz.save
+                        flash[:success] = "You totally rocked that quiz!!"
+                        redirect_to dashboard_path
+                    else
+                        flash[:danger] = "There was a problem saving your quiz."
+                        redirect_to video_path(@video)
+                    end
+                else
+                    flash[:danger] = "You already took that quiz."
+                    redirect_to dashboard_path
+                end
             end
         end
 

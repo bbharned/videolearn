@@ -7,7 +7,16 @@
 
 <br /><br />
 <h4 class="page-header">Quizes Completed</h4>
-
-
+<% if @user.quizzes.any? %>
+	<% @user.quizzes.each do |quiz| %>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="well well-sm">
+					<%= quiz.name %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>
 <br /><br />
 <h4 class="page-header">Badges Earned</h4>
