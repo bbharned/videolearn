@@ -35,6 +35,7 @@ class VideosController < ApplicationController
 
 
     def show
+        @vidId = @video.url[30..41] 
         if @video.quizzes.any?
             @quizzes = @video.quizzes
         else
