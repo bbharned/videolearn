@@ -3,7 +3,17 @@
 
 <br /><br />
 <h4 class="page-header">Videos Watched</h4>
-
+<% if @user.videos.any? %>
+	<% @user.videos.each do |video| %>
+		<div class="row">
+			<div class="col-sm-10 col-sm-offset-1">
+				<div class="well well-sm">
+					<%= video.name %>
+				</div>
+			</div>
+		</div>
+	<% end %>
+<% end %>
 
 <br /><br />
 <h4 class="page-header">Quizes Completed</h4>

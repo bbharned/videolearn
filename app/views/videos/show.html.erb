@@ -6,7 +6,7 @@
 <br />
 <div class="row">
 <div class="col-md-8 video-frame">
-	<iframe id="player" width="900" height="500" src=<%= "#{@video.url}" + "&modestbranding=1" %> frameborder="0" allowfullscreen></iframe>
+	<iframe id="player" width="900" height="500" src=<%= "#{@video.url}" + "&modestbranding=1&autoplay=1" %> frameborder="0" allowfullscreen></iframe>
 </div>
 <div class="col-md-4">
 <h4>Resources</h4>
@@ -35,10 +35,21 @@
 <script type="text/javascript">
 
 $("#player").on('load', function() {
-
-	// add user_video save here.
-	<% puts "video loaded" %> 
-
+<%
+	# add user_video save here.
+	@vidquery = UserVideo.where(user_id: @user.id, video_id: @video.id)
+    if @vidquery != []
+        
+    else
+    	@user_video = UserVideo.new(user_id: @user.id, video_id: @video.id)
+        if @user_video.save
+            
+        else
+            flash[:danger] = "There was a problem saving your video."
+            redirect_to video_path(@video)
+        end
+    end
+%>
 });
 
 </script>

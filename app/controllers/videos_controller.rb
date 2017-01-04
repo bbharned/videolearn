@@ -35,7 +35,8 @@ class VideosController < ApplicationController
 
 
     def show
-        @vidId = @video.url[30..41] 
+        @vidId = @video.url[30..41]
+        @user = User.find(current_user.id) 
         if @video.quizzes.any?
             @quizzes = @video.quizzes
         else
@@ -125,7 +126,6 @@ class VideosController < ApplicationController
                 flash[:danger] = "Oops, looks like you answered something wrong, please check your answers and try again."
                 redirect_to video_path(@video)
             else
-                # add quiz recording to table here!!!
                 @query = UserQuiz.where(user_id: @user.id, quiz_id: @quiz.id)
                 if @query == []
                     @user_quiz = UserQuiz.new(user_id: @user.id, quiz_id: @quiz.id)

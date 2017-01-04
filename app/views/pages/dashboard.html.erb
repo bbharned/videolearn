@@ -67,7 +67,17 @@
 				<% end %>
 			</td>
 			<td><%= link_to video.name, video_path(video) %></td>
-			<td class="centered"><%= image_tag("checked.png") %></td>
+			<td class="centered">
+				<% video.users.each do |user| %>
+					<% if user.id == @user.id %> 
+					<% UserVideo.where(user_id: @user.id, video_id: video.id).each do |checked| %>
+						<% if checked.video_id == video.id %>
+							<%= image_tag("checked.png") %>
+						<% end %>
+					<% end %>
+					<% end %>
+				<% end %>
+			</td>
 			<td class="centered">
 				<% video.quizzes.each do |quiz| %>
 					<% UserQuiz.where(user_id: @user.id, quiz_id: quiz.id).each do |checked| %>
