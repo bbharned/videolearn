@@ -63,14 +63,13 @@ class VideosController < ApplicationController
         @questions = @quiz.questions
         @user = User.find(current_user.id)
         @answers = Answer.where(name: @qanswers)
-
+        
         if (@qanswers.count != @questions.count)
             flash[:danger] = "You didnt answer all the questions."
             redirect_to video_path(@video)
         else 
             check_quiz(@answers)
-        end
-            
+        end    
     end
 
 
@@ -103,6 +102,7 @@ class VideosController < ApplicationController
         	end
         end
 
+
         def quiz_answers
             @qanswers = []
             if params[:Question]
@@ -113,6 +113,7 @@ class VideosController < ApplicationController
             end
         end
 
+
         def check_quiz(answers)
             @quiz = Quiz.find(params[:quiz_id])
             @user = User.find(current_user.id)
@@ -122,8 +123,10 @@ class VideosController < ApplicationController
                     @helpcount += 1
                 end
             end
+           
             if @helpcount > 0
                 flash[:danger] = "Oops, looks like you answered something wrong, please check your answers and try again."
+                @helpcount = 0
                 redirect_to video_path(@video)
             else
                 @query = UserQuiz.where(user_id: @user.id, quiz_id: @quiz.id)
@@ -131,13 +134,16 @@ class VideosController < ApplicationController
                     @user_quiz = UserQuiz.new(user_id: @user.id, quiz_id: @quiz.id)
                     if @user_quiz.save
                         flash[:success] = "You totally rocked that quiz!!"
+                        @helpcount = 0
                         redirect_to dashboard_path
                     else
                         flash[:danger] = "There was a problem saving your quiz."
+                        @helpcount = 0
                         redirect_to video_path(@video)
                     end
                 else
                     flash[:danger] = "You already took that quiz."
+                    helpcount = 0
                     redirect_to dashboard_path
                 end
             end

@@ -30,20 +30,20 @@ class PagesController < ApplicationController
         @catprod_user_quiz = 0
         @prod_videos.each do |video|
             @uvquery = UserVideo.where(user_id: @user.id, video_id: video.id)
-            if @uvquery != nil 
+            if @uvquery != [] 
                 @catprod_user_watch += 1
             end
             video.quizzes.each do |quiz|
                 @uqquery = UserQuiz.where(user_id: @user.id, quiz_id: quiz.id)
-                    if @uqquery != nil
+                    if @uqquery != []
                         @catprod_user_quiz += 1
                     end
                 end
         end
         
         if (@prod_videos.count == @catprod_user_watch) && (@catprod_user_quiz == @prod_videos.count) && @catprod_user_watch > 0
-            if (@badge != nil && !@badge.productivity) || (@badge == nil)
-                @newprodbadge = UserBadge.new(user_id:@user.id, productivity: true)
+            if  @badge == nil
+                @newprodbadge = UserBadge.new(user_id: @user.id, productivity: true)
                if @newprodbadge.save
                     #when productivity badge is awarded
                     flash[:success] = "You earned your PRODUCTIVITY badge!!!"
@@ -51,6 +51,14 @@ class PagesController < ApplicationController
                else
 
                end
+            elsif @badge != nil && !@badge.productivity
+                if @badge.update(productivity: true)
+                    flash[:success] = "CONGRATULATIONS! You earned your PRODUCTIVITY badge!"
+                    redirect_to dashboard_path
+                else
+                    flash[:danger] = "There was a problem awarding your badge."
+                    redirect_to dashboard_path
+                end
             end 
         end
         
