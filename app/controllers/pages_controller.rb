@@ -9,6 +9,8 @@ class PagesController < ApplicationController
     def dashboard
     	@videos = Video.all
     	@user = User.find(current_user.id)
+        # put in badge detection here.
+        @badge = UserBadge.where(user_id: @user.id).take
     end
 
     

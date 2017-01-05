@@ -10,6 +10,7 @@ class User < ActiveRecord::Base
     has_many :quizzes, through: :user_quizzes
     has_many :user_videos
     has_many :videos, through: :user_videos
+    has_one :user_badge
     
     VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i 
     validates :email,  presence: true,  length: { maximum: 105 },

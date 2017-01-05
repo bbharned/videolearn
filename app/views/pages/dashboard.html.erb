@@ -11,11 +11,43 @@
 			<h5><%= "#{@current_user.email}" %></h5>
 			<hr/>
 			<h5 style="color:#777777;">Badges Earned</h5>
-			<div class="dash-badges">
-				<div class="d-badge" id="productivity-badge"><%= image_tag("badge-productivity.png") %></div>
-				<div class="d-badge" id="visualization-badge"><%= image_tag("badge-visualization.png") %></div>
-				<div class="d-badge" id="security-badge"><%= image_tag("badge-security.png") %></div>
-				<div class="d-badge" id="mobility-badge"><%= image_tag("badge-mobility.png") %></div>
+			<div class="dash-badges">	
+				<% if @badge != nil && @badge.productivity %>
+					<div class="d-badge">
+						<%= image_tag("badge-productivity.png") %>
+					</div>
+				<% else %>
+					<div class="d-badge-opacity">
+						<%= image_tag("badge-productivity.png") %>
+					</div>
+				<% end %>
+				<% if @badge != nil && @badge.visualization %>
+					<div class="d-badge">
+						<%= image_tag("badge-visualization.png") %>
+					</div>
+				<% else %>
+					<div class="d-badge-opacity">
+						<%= image_tag("badge-visualization.png") %>
+					</div>	
+				<% end %>
+				<% if @badge != nil && @badge.security %>
+					<div class="d-badge">
+						<%= image_tag("badge-security.png") %>
+					</div>
+				<% else %>
+					<div class="d-badge-opacity">
+						<%= image_tag("badge-security.png") %>
+					</div>
+				<% end %>
+				<% if @badge != nil && @badge.mobility %>
+					<div class="d-badge">
+						<%= image_tag("badge-mobility.png") %>
+					</div>
+				<% else %>
+					<div class="d-badge-opacity">
+						<%= image_tag("badge-mobility.png") %>
+					</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
