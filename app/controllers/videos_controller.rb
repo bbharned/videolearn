@@ -62,7 +62,7 @@ class VideosController < ApplicationController
         @quiz = Quiz.find(params[:quiz_id])
         @questions = @quiz.questions
         @user = User.find(current_user.id)
-        @answers = Answer.where(name: @qanswers)
+        @answers = Answer.where(id: @qanswers)
         
         if (@qanswers.count != @questions.count)
             flash[:danger] = "You didnt answer all the questions."
