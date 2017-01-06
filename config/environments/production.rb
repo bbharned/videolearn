@@ -26,7 +26,7 @@ Rails.application.configure do
   config.assets.compile = false
 
 
-  config.action_mailer.default_url_options = { :host => "thinmanager.com" }
+  config.action_mailer.default_url_options = { :host => "stormy-river.herokuapp.com" }
 
   # `config.assets.precompile` and `config.assets.version` have moved to config/initializers/assets.rb
 
