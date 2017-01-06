@@ -115,6 +115,12 @@ ul.quiz-options {
 ul.quiz-options li {
     font-weight: lighter !important;
 }
+.show-page-badge {
+    text-align: center;
+}
+.show-page-badge img {
+    max-width:125px;
+}
 
 
 

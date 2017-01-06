@@ -43,7 +43,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        
+        @badge = UserBadge.where(user_id:@user.id).take
     end
 
     def destroy

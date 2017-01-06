@@ -30,3 +30,33 @@
 <% end %>
 <br /><br />
 <h4 class="page-header">Badges Earned</h4>
+<% if @badge != nil %>
+	<div class="row">
+	<div class="col-sm-2 col-sm-offset-2 show-page-badge">
+		<% if @badge.productivity %>
+			<%= image_tag("badge-productivity.png") %>
+		<% end %>
+	</div>
+	<div class="col-sm-2 show-page-badge">
+		<% if @badge.visualization %>
+			<%= image_tag("badge-visualization.png") %>
+		<% end %>
+	</div>
+	<div class="col-sm-2 show-page-badge">
+		<% if @badge.security %>
+			<%= image_tag("badge-security.png") %>
+		<% end %>
+	</div>
+	<div class="col-sm-2 show-page-badge">
+		<% if @badge.mobility %>
+			<%= image_tag("badge-mobility.png") %>
+		<% end %>
+	</div>
+	</div>
+<% elsif @badge != nil && (!@badge.productivity && !@badge.visualization && !@badge.security && !@badge.mobility) %>
+	<p align="center" style="color:darkorange;">No Badges Earned yet.</p>
+<% else %>
+	<p align="center" style="color:darkorange;">No Badges Earned yet.</p>
+<% end %>
+<br /><br /><br />
+<p align="center">[<%= link_to "Return To All Users", users_path %>]</p>
