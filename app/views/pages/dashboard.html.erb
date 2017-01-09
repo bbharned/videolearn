@@ -10,7 +10,7 @@
 			<h5><%= "#{@current_user.company}" %></h5>
 			<h5><%= "#{@current_user.email}" %></h5>
 			<hr/>
-			<h5 style="color:#777777;">Badges Earned</h5>
+			<h5 style="color:#777777;">Badges Earned <span style="font-size:.75em; font-style: italic;">(not all badges currently available)</span></h5>
 			<div class="dash-badges">	
 				<% if @badge != nil && @badge.productivity %>
 					<div class="d-badge">

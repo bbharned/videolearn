@@ -28,6 +28,7 @@ class PasswordResetsController < ApplicationController
       render 'edit'
     elsif @user.update_attributes(user_params)          # Case (4)
       session[:user_id] = @user.id
+      @user.update_attribute(:lastlogin, Time.now)
       flash[:success] = "Password has been reset."
       redirect_to dashboard_path
     else
