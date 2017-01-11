@@ -1,7 +1,7 @@
 class User < ActiveRecord::Base
     attr_accessor :remember_token, :reset_token 
     validates :firstname, presence: true, length: { minimum: 1, maximum: 20 }
-    validates :lastname, presence: true, length: { minimum: 3, maximum: 20 }
+    validates :lastname, presence: true, length: { minimum: 2, maximum: 30 }
     validates :password, confirmation: true, :on => :create
     validates :email, confirmation: true, :on => :create
     validates :email_confirmation, presence: true, :on => :create
