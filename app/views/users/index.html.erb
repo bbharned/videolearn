@@ -1,4 +1,4 @@
-<h1 class="page-header">Registered Users</h1>
+<h1 class="page-header">Registered Users <span style="font-size: .4em; font-style: italic; font-weight:normal;">( <%= pluralize(@users.count, "total user") %> )</span></h1>
 <div align="center"><%= will_paginate %></div>
 <% @users.each do |user| %>
     
