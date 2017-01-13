@@ -1,7 +1,7 @@
 <% @video.quizzes.each do |quiz| %>
 <%= form_tag do  %>
 <h2 style="text-transform: capitalize;"><%= label_tag "#{quiz.name}" %></h2><br />
-	<% quiz.questions.each do |question| %>
+	<% quiz.questions.order(:id).each do |question| %>
 		<%= fields_for question do %>
 			<h4><%= label_tag "#{question.name}" %></h4>
 				<ul class="quiz-options">
