@@ -7,7 +7,7 @@ class PagesController < ApplicationController
     end
 
     def dashboard
-    	@videos = Video.all
+        @videos = Video.includes(:video_categories).order("video_categories.category_id asc")
     	@user = User.find(current_user.id)
         # put in badge detection here.
         @badge = UserBadge.where(user_id: @user.id).take
