@@ -17,6 +17,9 @@ Rails.application.routes.draw do
 
 	get 'dashboard', to: 'pages#dashboard'
 
+	get 'pages/users/filter_company', to: 'users#filter_company'
+	get 'pages/users/filter_login', to: 'users#filter_login'
+
 	get 'login', to: 'sessions#new'
 	post 'login', to: 'sessions#create'
 	delete 'logout', to: 'sessions#destroy'

@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     
 
     def index
-        @users = User.paginate(page: params[:page], per_page: 40).order(:lastname)
+        @users = User.paginate(page: params[:page], per_page: 50).order(:lastname)
     end
 
 
@@ -51,6 +51,14 @@ class UsersController < ApplicationController
         @user.destroy
         flash[:danger] = "User and user info has been deleted"
         redirect_to users_path
+    end
+
+    def filter_company
+        @users = User.paginate(page: params[:page], per_page: 50).order(:company)
+    end
+
+    def filter_login
+        @users = User.paginate(page: params[:page], per_page: 50).order("lastlogin desc")
     end
 
 
