@@ -11,6 +11,10 @@ class PagesController < ApplicationController
         @users = User.all
         @allwatched = UserVideo.all
         @allquizzed = UserQuiz.all
+        @prodbadges = UserBadge.where(productivity: true)
+        @visbadges = UserBadge.where(visualization: true)
+        @secbadges = UserBadge.where(security: true)
+        @mobbadges = UserBadge.where(mobility: true)
     end
 
     def dashboard
