@@ -6,6 +6,12 @@
 .goAwaySooner {
     display:inline;
 }
+.centered {
+    text-align:center;
+}
+.huge {
+    font-size: 5em;
+}
 .email-field {
     margin-bottom: 10px;
 }

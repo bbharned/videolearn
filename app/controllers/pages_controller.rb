@@ -1,9 +1,16 @@
 class PagesController < ApplicationController
 	before_action :require_user, except: [:index]
+    before_action :require_admin, only: [:stats]
 
     def index
         @user = User.new
         redirect_to dashboard_path if logged_in?
+    end
+
+    def stats
+        @users = User.all
+        @allwatched = UserVideo.all
+        @allquizzed = UserQuiz.all
     end
 
     def dashboard
@@ -74,6 +81,12 @@ class PagesController < ApplicationController
 
     private
 
+    def require_admin
+        if !logged_in? || (logged_in? && !current_user.admin?)
+            flash[:danger] = "Only Admins can perform that action"
+            redirect_to root_path
+        end
+    end
     
 
 end
