@@ -1,5 +1,5 @@
 <h1 class="page-header">Video Learning Stats</h1>
-
+<h4>All Time</h4>
 <div class="row">
 <div class="col-sm-4">
 	<div class="well centered">
@@ -47,3 +47,26 @@
 	</div>
 </div>
 </div>
+<br/><br /><hr />
+<h4>This Week</h4>
+<div class="row">
+<div class="col-sm-4">
+	<div class="well centered">
+		<h3>Total New Users</h3>
+		<h1 class="huge"><%= @usersthisweek.count %></h1>
+	</div>
+</div>
+<div class="col-sm-4">
+	<div class="well centered">
+		<h3>Videos Watched This week</h3>
+		<h1 class="huge"><%= @watchedthisweek.count %></h1>
+	</div>
+</div>
+<div class="col-sm-4">
+	<div class="well centered">
+		<h3>Total Quizzes Taken</h3>
+		<h1 class="huge"><%= @quizthisweek.count %></h1>
+	</div>
+</div>
+</div>
+

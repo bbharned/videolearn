@@ -15,6 +15,9 @@ class PagesController < ApplicationController
         @visbadges = UserBadge.where(visualization: true)
         @secbadges = UserBadge.where(security: true)
         @mobbadges = UserBadge.where(mobility: true)
+        @watchedthisweek = UserVideo.where(created_at: 1.week.ago..Date.tomorrow)
+        @usersthisweek = User.where(created_at: 1.week.ago..Date.tomorrow)
+        @quizthisweek = UserQuiz.where(created_at: 1.week.ago..Date.tomorrow)
     end
 
     def dashboard
