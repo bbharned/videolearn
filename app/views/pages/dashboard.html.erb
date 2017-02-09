@@ -123,6 +123,24 @@
 	<% end %>
 </table>
 
+<div id="prodAward">
+	<div class="closeIt"></div>
+	<h1>WORKS!!</h1>
+</div>
 
 <%= render 'layouts/ctas' %>
 
+<% if (flash[:success] == "You earned your PRODUCTIVITY badge!") %>
+	<script>
+		(function() {
+			$('#prodAward').lightbox_me({
+			centered: true, 
+			zIndex: 9999,
+			overlayCSS: {background: '#000000', opacity:.85},
+			});
+		})();
+		$('.closeIt').on ("click", function(e) {
+			$('#prodAward').trigger('close');
+		});
+	</script>
+<% end %>

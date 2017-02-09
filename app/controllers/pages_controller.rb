@@ -60,14 +60,14 @@ class PagesController < ApplicationController
                 @newprodbadge = UserBadge.new(user_id: @user.id, productivity: true)
                if @newprodbadge.save
                     #when productivity badge is awarded
-                    flash[:success] = "You earned your PRODUCTIVITY badge!!!"
+                    flash[:success] = "You earned your PRODUCTIVITY badge!"
                     redirect_to dashboard_path 
                else
 
                end
             elsif @badge != nil && !@badge.productivity
                 if @badge.update(productivity: true)
-                    flash[:success] = "CONGRATULATIONS! You earned your PRODUCTIVITY badge!"
+                    flash[:success] = "You earned your PRODUCTIVITY badge!"
                     redirect_to dashboard_path
                 else
                     flash[:danger] = "There was a problem awarding your badge."

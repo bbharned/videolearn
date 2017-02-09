@@ -2,6 +2,20 @@
 .appear, .appear-sooner {
     display: none;
 }
+.closeIt {
+    position:relative; width:25px; height:25px; float:right; background-color:#000000;
+    border-radius:50%; margin-top:-15px; margin-right:-15px;
+    cursor:pointer; background-image:url(https://www.thinmanager.com/images/close.png);
+    background-position: center center;
+    background-repeat:no-repeat; border:2px solid #FFFFFF;  
+}
+#prodAward {
+    width:90%; max-width: 500px; min-height: 300px; max-height: 500px; background-color: #F6F6F6;
+    border-radius: 15px; text-align: center; display:none; 
+}
+#prodAward h1 {
+    font-size:3em; padding-top: 150px; padding-bottom: 150px;
+}
 .goAway,
 .goAwaySooner {
     display:inline;
