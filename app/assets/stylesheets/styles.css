@@ -2,20 +2,6 @@
 .appear, .appear-sooner {
     display: none;
 }
-.closeIt {
-    position:relative; width:25px; height:25px; float:right; background-color:#000000;
-    border-radius:50%; margin-top:-15px; margin-right:-15px;
-    cursor:pointer; background-image:url(https://www.thinmanager.com/images/close.png);
-    background-position: center center;
-    background-repeat:no-repeat; border:2px solid #FFFFFF;  
-}
-#prodAward {
-    width:90%; max-width: 500px; min-height: 300px; max-height: 500px; background-color: #F6F6F6;
-    border-radius: 15px; text-align: center; display:none; 
-}
-#prodAward h1 {
-    font-size:3em; padding-top: 150px; padding-bottom: 150px;
-}
 .goAway,
 .goAwaySooner {
     display:inline;
@@ -158,6 +144,82 @@ ul.quiz-options li {
 }
 .link-right {text-align:right !important; margin-bottom:0px !important; text-decoration:underline;}
 /**** End CTA Span at bottom *****/
+
+
+
+/***********      Badge Awarding       ************/
+.closeIt {
+    position:relative; width:25px; height:25px; float:right; background-color:#000000;
+    border-radius:50%; margin-top:-15px; margin-right:-15px;
+    cursor:pointer; background-image:url(https://www.thinmanager.com/images/close.png);
+    background-position: center center;
+    background-repeat:no-repeat; border:2px solid #FFFFFF;  
+}
+.award {
+    width:90%; max-width: 500px; min-height: 400px; background-color: #F6F6F6;
+    border-radius: 15px; text-align: center; padding-bottom: 70px; display: none;  
+}
+.award h1 {
+    font-size:2.5em; padding-top: 20px; margin-bottom: 7px; 
+}
+.award p {
+    margin-bottom: 20px !important;
+} 
+.award .badge-image {
+    width:200px; height: 200px; margin: auto;
+    -webkit-animation-name: spin; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 1.5s; /* Chrome, Safari, Opera */
+    animation-name: spin;
+    animation-duration: 1.5s;
+}
+.award .badge-image img {
+    width:100%;
+}
+
+@-webkit-keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        width:25px;
+        height:25px;
+    }
+    to {
+        -webkit-transform: rotate(1080deg);
+        -moz-transform: rotate(1080deg);
+        -ms-transform: rotate(1080deg);
+        -o-transform: rotate(1080deg);
+        transform: rotate(1080deg);
+        width:200px;
+        height:200px;
+    }
+}
+/* Standard syntax */
+@keyframes spin {
+    from {
+        -webkit-transform: rotate(0deg);
+        -moz-transform: rotate(0deg);
+        -ms-transform: rotate(0deg);
+        -o-transform: rotate(0deg);
+        transform: rotate(0deg);
+        width:25px;
+        height:25px;
+    }
+    to {
+        -webkit-transform: rotate(1080deg);
+        -moz-transform: rotate(1080deg);
+        -ms-transform: rotate(1080deg);
+        -o-transform: rotate(1080deg);
+        transform: rotate(1080deg);
+        width:200px;
+        height:200px;
+    }
+}
+/***********      End Badge Awarding       ************/
+
+
 
 
 
