@@ -1,3 +1,5 @@
+<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 <h1 class="page-header">Welcome <%= @current_user.firstname %>!</h1>
 
 <div class="row">
@@ -128,6 +130,8 @@
 	<h1>Congratulations!</h1>
 	<p>You earned a badge</p>
 	<div class="badge-image"><%= image_tag("badge-productivity.png") %></div>
+	<!-- LinkedIn -->
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://learn.thinmanager.com&title=I%20Just%20Earned%20A%20Badge%20From%20ThinManager!&source=https://learn.thinmanager.com" target="_blank" class="btn btn-linkedin"><i class="fa fa-linkedin" style=""></i><br />Share on LinkedIn!</a>
 </div>
 
 <%= render 'layouts/ctas' %>

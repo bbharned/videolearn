@@ -157,7 +157,7 @@ ul.quiz-options li {
 }
 .award {
     width:90%; max-width: 500px; min-height: 400px; background-color: #F6F6F6;
-    border-radius: 15px; text-align: center; padding-bottom: 70px; display: none;  
+    border-radius: 15px; text-align: center; padding-bottom: 30px; display: none;    
 }
 .award h1 {
     font-size:2.5em; padding-top: 20px; margin-bottom: 7px; 
@@ -166,7 +166,7 @@ ul.quiz-options li {
     margin-bottom: 20px !important;
 } 
 .award .badge-image {
-    width:200px; height: 200px; margin: auto;
+    width:200px; height: 200px; margin: auto; margin-bottom: 25px;
     -webkit-animation-name: spin; /* Chrome, Safari, Opera */
     -webkit-animation-duration: 1.5s; /* Chrome, Safari, Opera */
     animation-name: spin;
@@ -175,7 +175,12 @@ ul.quiz-options li {
 .award .badge-image img {
     width:100%;
 }
-
+i.fa-linkedin {
+    font-size:3em; border:1px solid #0077B5; padding: 3px 15px; border-radius:7px;
+}
+i.fa-linkedin:hover {
+    background-color: #E0E0E0; border:1px solid #000000;
+}
 @-webkit-keyframes spin {
     from {
         -webkit-transform: rotate(0deg);
