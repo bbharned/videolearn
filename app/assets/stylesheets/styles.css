@@ -157,7 +157,7 @@ ul.quiz-options li {
 }
 .award {
     width:90%; max-width: 500px; min-height: 400px; background-color: #F6F6F6;
-    border-radius: 15px; text-align: center; padding-bottom: 30px; display: none;   
+    border-radius: 15px; text-align: center; padding-bottom: 30px; display: none;  
 }
 .award h1 {
     font-size:2.5em; padding-top: 20px; margin-bottom: 7px; 
