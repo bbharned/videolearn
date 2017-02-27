@@ -15,4 +15,6 @@
 //= require bootstrap-sprockets
 //= require turbolinks
 //= require jquery.lightbox_me
+//= require moment
+//= require bootstrap-datetimepicker
 //= require_tree .

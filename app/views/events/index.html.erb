@@ -1,0 +1,7 @@
+<h1 class="page-header">Upcoming Events</h1>
+
+<% @events.each do |event| %>
+
+<p><%= event.name %> | Date/Time: <%= event.time.to_s(:time_display) %> | capacity: <%= event.capacity %> | Type: <%= event.eventcats.first.name if event.eventcats.any? %></p> 
+
+<% end %>
