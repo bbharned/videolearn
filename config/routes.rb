@@ -16,6 +16,8 @@ Rails.application.routes.draw do
 	resources :answers, except: [:show]
 	resources :events
 
+	resources :eventcats, except: [:destroy] 
+
 	get 'dashboard', to: 'pages#dashboard'
 
 	get 'pages/users/filter_company', to: 'users#filter_company'
