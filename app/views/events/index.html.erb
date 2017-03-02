@@ -2,6 +2,38 @@
 
 <% @events.each do |event| %>
 
-<p><%= link_to "#{event.name}", event_path(event) %> | Date/Time: <%= event.time.to_s(:time_display) %> | capacity: <%= event.capacity %> | Type: <%= event.eventcats.first.name if event.eventcats.any? %></p> 
+
+<div class="well row">
+<div class="row">
+	<div class="col-md-10"><h4><%= link_to "#{event.name}", event_path(event) %></h4></div>
+	<div class="col-md-2">
+		<% if event.cost == 0 %>
+			<p>Complimentary Event</p>
+		<% else %>
+			<p>Cost: $<%= event.cost %></p>
+		<% end %>
+	</div>
+</div>
+<hr />
+<div class="row">
+	<div class="col-md-12"><p>Date/Time: <span style="font-weight:bold;"><%= event.time.to_s(:time_display) %></span>
+	<br />Event Capacity: <%= event.capacity %>&nbsp;&nbsp;|&nbsp;&nbsp;Currently registered: 2</p></div>
+</div>
+<div class="row">
+	<div class="col-md-2"><%= link_to "Register Now", root_path, class: "btn btn-primary" %></div>
+</div>
+<hr />
+<div class="row">
+<div class="col-md-12">
+	<% if event.eventcats.any? %>
+		<% event.eventcats.each do |category| %>
+			<div class="badge"><%= category.name %></div>
+		<% end %>
+	<% end %>
+</div>
+</div>
+</div>
+
+ 
 
 <% end %>
