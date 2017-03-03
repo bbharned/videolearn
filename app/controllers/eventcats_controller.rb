@@ -5,6 +5,10 @@ class EventcatsController < ApplicationController
 		@ecats = Eventcat.all
 	end
 
+    def new
+        @ecat = Eventcat.new
+    end
+
 	def edit
         @ecat = Eventcat.find(params[:id])
     end
@@ -22,6 +26,7 @@ class EventcatsController < ApplicationController
 
 	def show
 		@ecat = Eventcat.find(params[:id])
+        @ecat_events = @ecat.events
 	end
 
 

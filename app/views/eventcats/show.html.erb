@@ -1,8 +1,11 @@
-<h1 class="page-header">Upcoming Events</h1>
-<%= render "eventcats/nav" %>
-<% @events.each do |event| %>
-
-
+<h1 class="page-header">Scheduled <%= @ecat.name %>&nbsp;&nbsp;
+<% if logged_in? && current_user.admin? %>
+<span class="badge"><%= link_to "Edit Category Name", edit_eventcat_path(@ecat) %></span>
+<% end %>
+</h1>
+<%= render 'nav' %>
+<br />
+<% @ecat_events.each do |event| %>
 <div class="well row">
 <div class="row">
 	<div class="col-md-10"><h4><%= link_to "#{event.name}", event_path(event) %></h4></div>
@@ -33,7 +36,4 @@
 </div>
 </div>
 </div>
-
- 
-
 <% end %>

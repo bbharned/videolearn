@@ -127,7 +127,13 @@ ul.quiz-options li {
 .show-page-badge img {
     max-width:125px;
 }
-
+.ecategory-listing {
+    list-style:none;
+}
+.ecategory-title {
+    font-size:1.5em;
+}
+span.badge a {color:#FFFFFF;}
 
 
 
