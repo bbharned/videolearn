@@ -134,6 +134,15 @@ ul.quiz-options li {
     font-size:1.5em;
 }
 span.badge a {color:#FFFFFF;}
+.new-venue-button {
+    float:right; margin-top: -65px;
+}
+.action-buttons{
+    text-align: right;
+}
+.event-cost {
+    margin-top:12px; text-align: right;
+}
 
 
 

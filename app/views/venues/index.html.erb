@@ -1,0 +1,19 @@
+<h1 class="page-header">Event Venues</h1>
+<% if logged_in? && current_user.admin? %>
+    <%= link_to "Create New Venue", new_venue_path, class: "btn btn-default new-venue-button" %>
+<% end %>
+<% Venue.all.each do |venue| %>
+    <div class="well" style="margin:auto;">
+        <h4 align="center"><%= venue.name %></h4>
+        <p align="center"><%= venue.street %><br /><%= venue.city %><% if venue.city != "" %>,<% end %> <%= venue.state %> <%= venue.zipcode %></p>
+        <br />
+        <p align="center"><%= link_to "See Events at this location", venue_path(venue) %></p>
+        <% if logged_in? and current_user.admin? %>
+            <hr />
+            <p align="right" style="margin-bottom:0px;">
+            <%= link_to "Edit Venue", edit_venue_path(venue), class: "btn btn-primary btn-sm" %>
+            <%= link_to "Delete Venue", venue_path(venue), method: :delete, data: {confirm: "Are you sure you want to delete the selected event venue?"}, class: "btn btn-danger btn-sm" %>    
+            </p>
+        <% end %>
+    </div>
+<% end %>

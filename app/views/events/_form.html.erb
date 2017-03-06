@@ -101,6 +101,20 @@
         </div>
     </div>
     <hr />
+    <div class="row">
+        <div class="col-md-1 col-md-offset-1">
+            <div class="form-group">
+                <%= e.label :venue %>
+            </div>
+        </div>
+        <div class="col-md-10">
+            <div class="form-group">
+                <%= e.collection_check_boxes :venue_ids, Venue.all, :id, :name do |cb| %>
+                <% cb.label(class: "checkbox-inline input_checkbox") {cb.check_box(class: "checkbox") + cb.text} %>
+                <% end %>
+            </div>
+        </div>
+    </div>
    
     <br />
     <div class="row">

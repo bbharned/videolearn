@@ -1,0 +1,111 @@
+<%= render 'shared/errors', obj: @venue %>
+
+<%= form_for(@venue, :html => {class: "form-horizontal", role: "form"}) do |f| %>
+<div class="row">
+    <div class="form-group">
+        <div class="control-label col-sm-1">
+            <%= f.label :name %>
+        </div>
+        <div class="col-sm-10">
+            <%= f.text_field :name, class: "form-control", placeholder: "Enter Venue Name", autofocus: true %>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+        <div class="control-label col-sm-1">
+            <%= f.label :street %>
+        </div>
+        <div class="col-sm-10">
+            <%= f.text_field :street, class: "form-control", placeholder: "Enter Address" %>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="form-group">
+        <div class="control-label col-sm-1">
+            <%= f.label :city %>
+        </div>
+        <div class="col-sm-4">
+            <%= f.text_field :city, class: "form-control", placeholder: "Enter City" %>
+        </div>
+        <div class="control-label col-sm-1">
+            <%= f.label :state %>
+        </div>
+        <div class="col-sm-2 state-dropdown">
+            <%= f.select :state, options_for_select([
+                      [""],
+                      ["AL"], 
+                      ["AK"], 
+                      ["AZ"], 
+                      ["AR"], 
+                      ["CA"],
+                      ["CO"],
+                      ["CT"],
+                      ["DE"],
+                      ["FL"],
+                      ["GA"],
+                      ["HI"],
+                      ["ID"],
+                      ["IL"],
+                      ["IN"],
+                      ["IA"],
+                      ["KS"],
+                      ["KY"],
+                      ["LA"],
+                      ["ME"],
+                      ["MD"],
+                      ["MA"],
+                      ["MI"],
+                      ["MN"],
+                      ["MS"],
+                      ["MO"],
+                      ["MT"],
+                      ["NE"],
+                      ["NV"],
+                      ["NH"],
+                      ["NJ"],
+                      ["NM"],
+                      ["NY"],
+                      ["NC"],
+                      ["ND"],
+                      ["OH"],
+                      ["OK"],
+                      ["OR"],
+                      ["PA"],
+                      ["RI"],
+                      ["SC"],
+                      ["SD"],
+                      ["TN"],
+                      ["TX"],
+                      ["UT"],
+                      ["VT"],
+                      ["VA"],
+                      ["WA"],
+                      ["WV"],
+                      ["WI"],
+                      ["WY"],
+                      ["Not in US"]
+                      ], @venue.state), class: "form-control" %>
+        </div>
+        <div class="control-label col-sm-1">
+            <%= f.label :zipcode %>
+        </div>
+        <div class="col-sm-2 col-xs-3">
+            <%= f.text_field :zipcode, class: "form-control", placeholder: "Zip" %>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-sm-4 col-sm-offset-1">
+        <%= f.submit(@venue.new_record? ? "Create Venue" : "Update Venue", class: "btn btn-primary btn-lg")%>
+    </div>
+</div>    
+<% end %>
+<br /><br />
+<div class="row">
+<div class="col-sm-4 col-sm-offset-4" style="text-align:center;">
+[<%= link_to "Cancel and Return to Event Venues", venues_path %>]
+</div>
+</div>
