@@ -1,3 +1,4 @@
+<div class="venue-form">
 <%= render 'shared/errors', obj: @venue %>
 
 <%= form_for(@venue, :html => {class: "form-horizontal", role: "form"}) do |f| %>
@@ -107,5 +108,6 @@
 <div class="row">
 <div class="col-sm-4 col-sm-offset-4" style="text-align:center;">
 [<%= link_to "Cancel and Return to Event Venues", venues_path %>]
+</div>
 </div>
 </div>

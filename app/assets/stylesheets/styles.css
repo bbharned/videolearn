@@ -143,6 +143,12 @@ span.badge a {color:#FFFFFF;}
 .event-cost {
     margin-top:12px; text-align: right;
 }
+.state-dropdown {
+    margin-top: 6px;
+}
+.venue-form {
+    max-width:95%; margin: auto;
+}
 
 
 
@@ -363,5 +369,7 @@ span.badge a {color:#FFFFFF;}
 .new-vid-button {
     float:none; margin-top: -10px; margin-bottom: 35px;
 }
-
+.state-dropdown {
+    margin-top: -10px; margin-bottom: 12px;
+}
 }
