@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 .well {
-    max-width: 100%; padding-left: 2% !important; padding-right: 2% !important;
+    max-width: 96%; padding-left: 2% !important; padding-right: 2% !important;
 }
 .well-sm {
     margin-bottom: 7px !important;
@@ -128,7 +128,7 @@ ul.quiz-options li {
     max-width:125px;
 }
 .ecategory-listing {
-    list-style:none;
+    list-style:none; margin:auto; margin-left: -35px;
 }
 .ecategory-title {
     font-size:1.5em;
@@ -349,6 +349,9 @@ span.badge a {color:#FFFFFF;}
 }
 .need-space {
     margin-left:0px;
+}
+.new-venue-button {
+    float:none; margin-top: -10px; margin-bottom: 20px;
 }
 }
 
