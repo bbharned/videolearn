@@ -1,11 +1,20 @@
 <% obj.each do |event| %>
 <% if event.time == nil || event.time >= DateTime.current  %> 
-    <div class="row well well-sm" style="max-width:100%; margin:auto; margin-bottom:10px;">
+    
+    
+<div align="center">
+    <div class="col-md-4">
+
+    <div class="well well-sm event-card">
+
         <div class="row">
-            <div class="col-md-9">
-                <h4 style="margin-bottom:20px;"><%= link_to "#{event.name}", event_path(event) %></h4>
+            <div class="col-md-12">
+                <h4 style="margin-bottom:0px;"><%= link_to "#{event.name}", event_path(event) %></h4>
             </div>
-            <div class="col-md-3">
+        </div>
+        <img src="#" alt=<%= "#{event.name}" %> />
+        <div class="row">    
+            <div class="col-md-12">
                 <% if event.cost == nil || event.cost == 0 %>
                     <p class="event-cost">Complimentary Event</p>
                 <% else %>
@@ -13,7 +22,11 @@
                 <% end %>
             </div>
         </div>
+
+
         <hr style="margin-top: 0px;" />
+
+
         <div class="row">
             <div class="col-md-12">
                 <p style="font-weight:bold;">
@@ -29,9 +42,10 @@
                 <% end %>
             </div>
         </div>
+
         <div class="row">
             <div class="col-md-12">
-                <p><%= truncate(event.description, length: 150) %></p>
+                <p><%= truncate(event.description, length: 150) %>...</p>
                 <p class="small">
                 
                 capacity: <%= event.capacity %> &nbsp;&nbsp;
@@ -48,7 +62,7 @@
 
         <div class="row action-buttons">
         
-            <div class="col-md-3 col-md-offset-9">
+            <div class="col-md-12 ">
                 <%= link_to "Register", events_path, class: "btn btn-primary btn-sm" %> 
                 <% if logged_in? && current_user.admin? %>
                     <%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-sm" %> 
@@ -60,7 +74,12 @@
             </div>
         
         </div>
-        
-    </div>
+    
+     </div> 
+
+     </div>  
+</div>    
+
+
 <% end %>
 <% end %>

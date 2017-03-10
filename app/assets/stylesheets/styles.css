@@ -138,16 +138,23 @@ span.badge a {color:#FFFFFF;}
     float:right; margin-top: -65px;
 }
 .action-buttons{
-    text-align: right;
+    /*text-align: right; padding-right: 15px;*/
+    position:absolute; bottom:7px; right:10px; text-align: right;
 }
 .event-cost {
-    margin-top:12px; text-align: right;
+    margin-top:12px; 
 }
 .state-dropdown {
     margin-top: 6px;
 }
 .venue-form {
     max-width:95%; margin: auto;
+}
+.event-card {
+    padding-bottom: 40px; position: relative; min-height:490px; 
+}
+.event-card img {
+    width:95%; height:150px; margin: auto; margin-top: 15px;
 }
 
 
