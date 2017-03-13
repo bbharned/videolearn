@@ -18,6 +18,12 @@ class PagesController < ApplicationController
         @watchedthisweek = UserVideo.where(created_at: 1.week.ago..Date.tomorrow)
         @usersthisweek = User.where(created_at: 1.week.ago..Date.tomorrow)
         @quizthisweek = UserQuiz.where(created_at: 1.week.ago..Date.tomorrow)
+        @watchedthismonth = UserVideo.where(created_at: 1.month.ago..Date.tomorrow)
+        @usersthismonth = User.where(created_at: 1.month.ago..Date.tomorrow)
+        @quizthismonth = UserQuiz.where(created_at: 1.month.ago..Date.tomorrow)
+        @watchedthisquarter = UserVideo.where(created_at: 3.months.ago..Date.tomorrow)
+        @usersthisquarter = User.where(created_at: 3.months.ago..Date.tomorrow)
+        @quizthisquarter = UserQuiz.where(created_at: 3.months.ago..Date.tomorrow)
     end
 
     def dashboard
