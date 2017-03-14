@@ -14,10 +14,11 @@ Rails.application.routes.draw do
 	resources :quizzes
 	resources :questions
 	resources :answers, except: [:show]
-	resources :events
 
+	resources :events
 	resources :eventcats, except: [:destroy] 
 	resources :venues
+	resources :attendees
 
 	get 'dashboard', to: 'pages#dashboard'
 
