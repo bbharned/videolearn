@@ -1,0 +1,87 @@
+<%= render 'shared/errors', obj: @attendee %>
+<%= form_for @attendee do |f| %>
+<div class="attendee-form">
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+                <%= f.label "First Name *" %>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="form-group">
+                <%= f.text_field :firstname, class: "form-control", placeholder: "Enter First Name" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+                <%= f.label "Last Name *" %>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="form-group">
+                <%= f.text_field :lastname, class: "form-control", placeholder: "Enter Last Name" %>
+            </div>
+        </div>
+    </div>
+    
+    <%= f.hidden_field :event_id, value: @event.id %>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+                <%= f.label "Email Address *" %>
+            </div>
+        </div>
+        <div class='col-md-7'>
+            <div class="form-group">
+                <%= f.text_field :email, class: "form-control", placeholder: "Enter Email Address"  %>
+            </div>
+        </div>
+     </div>
+     <div class="row">   
+        <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+                <%= f.label "Company *" %>
+            </div>
+        </div>
+        <div class="col-md-7">
+            <div class="form-group">
+                <%= f.text_field :company, class: "form-control", placeholder: "Enter Company Name" %>
+            </div>
+        </div>
+    </div>
+
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+                <%= f.label "Relationship to ThinManager" %>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <%= f.select :relationship, options_for_select([
+              [ ],
+              ["ThinManager Channel Partner"], 
+              ["ThinManager Systems Integrator"], 
+              ["End User/Customer"], 
+              ["Other"]
+              ], @attendee.relationship), class: "form-control" %>
+            </div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        <div class="col-md-7 col-md-offset-3">
+            <%= f.submit(@attendee.new_record? ? "Register" : "Update Attendee", class: "btn btn-primary btn-lg") %>
+
+        </div>
+    </div>
+    <br /><br />
+    <div class="cancel-link-form" align="center">
+    <p>[ <%= link_to "Cancel & Return To All Events", events_path %> ]</p>
+    </div>
+</div>
+<% end %>

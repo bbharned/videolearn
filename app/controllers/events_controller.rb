@@ -28,7 +28,7 @@ end
 def create
         
         @event = Event.new(event_params)
-        
+
         if @event.save
             flash[:success] = "Event successfully created"
             redirect_to events_path

@@ -1,1 +1,18 @@
 <h1 class="page-header">Event Attendees</h1>
+
+<% @events.each do |event| %>
+
+<h3><%= event.name %></h3>
+<p><%= event.time.to_s(:time_display) %></p>
+<h5>Registered Attendees</h5>
+<% if event.attendees.any? %>
+	<% event.attendees.each do |attendee| %>
+		<p><%= attendee.firstname %> <%= attendee.lastname %></p>
+	<% end %>
+<% else %>
+	<p style="color:orange;">There are currently no attendees registered</p>
+<% end %>
+<hr />
+<br />
+
+<% end %>

@@ -48,10 +48,7 @@
                 <p><%= truncate(event.description, length: 150) %>...</p>
                 <p class="small">
                 
-                capacity: <%= event.capacity %> &nbsp;&nbsp;
-                <% if logged_in? %>
-                |&nbsp;&nbsp; currently registered:&nbsp; 4</p>
-                <%end %>
+                capacity: <%= event.capacity %> &nbsp;&nbsp;|&nbsp;&nbsp; currently registered:&nbsp; <%= EventAttendee.where(:event_id => event.id).count %></p>
             </div>
         </div>
         <% if event.eventcats.any? %>
@@ -63,7 +60,12 @@
         <div class="row action-buttons">
         
             <div class="col-md-12 ">
-                <%= link_to "Register", events_path, class: "btn btn-primary btn-sm" %> 
+                <% @registered = EventAttendee.where(:event_id => event.id) %>
+                <% if !@registered.any? || event.capacity > @registered.count  %>
+                    <%= link_to "Register", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm" %> 
+                <% elsif @registered.any? && event.capacity <= @registered.count %>
+                    <%= link_to "Class Full", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm disabled" %>
+                <% end %>
                 <% if logged_in? && current_user.admin? %>
                     <%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-sm" %> 
                         

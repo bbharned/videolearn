@@ -18,7 +18,7 @@ Rails.application.routes.draw do
 	resources :events
 	resources :eventcats, except: [:destroy] 
 	resources :venues
-	resources :attendees
+	resources :attendees, except: [:show, :edit]
 
 	get 'dashboard', to: 'pages#dashboard'
 
