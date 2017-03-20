@@ -159,6 +159,9 @@ span.badge a {color:#FFFFFF;}
 .attendee-checkin-row {
     margin-bottom: 10px;
 }
+.attendance {
+    float:right; margin-top: -50px;
+}
 
 
 

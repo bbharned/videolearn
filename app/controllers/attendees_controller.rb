@@ -23,7 +23,7 @@ class AttendeesController < ApplicationController
         @attendee = Attendee.new(attendee_params)
         @event = Event.find(params[:attendee][:event_id])
     	if @attendee.save
-        	@registered = EventAttendee.new(:attendee_id => @attendee.id, :event_id => @event.id)
+        	@registered = EventAttendee.new(:attendee_id => @attendee.id, :event_id => @event.id, :lastname => @attendee.lastname)
             if @registered.save
             	flash[:success] = "You Are now registered. Thanks for registering"
             	redirect_to events_path
