@@ -2,13 +2,14 @@
 
 <% if @event.time != nil %>
 <div class="well" style="margin:auto; margin-bottom: 20px !important;">
-    <div class="row">
-        <div class="col-md-4"><span style="font-weight:bold;"><%= @event.name %></span></div>
+    <div class="row" style="font-weight: bold;">
+        <div class="col-md-4"><%= @event.name %></div>
         <div class="col-md-4"><%= @event.time.to_s(:time_display) %></div>
         <div class="col-md-4"><%= @event.venues.last.name if @event.venues.any? %></div>
     </div>
     <hr />
-    <h5>Registered Attendees</h5>
+    <h5>Registered Attendees <span style="font-weight: normal;">( capacity: <%= @event.capacity %>&nbsp;|&nbsp;registered: <%= @attendees.count %> )</span></h5>
+    <br />
     <% @attendees.where(event_id: @event.id).each do | attendee | %>
     <div class="row attendee-checkin-row">
         <div class="col-md-3 col-md-offset-1"><span class="goAwaySooner glyphicon glyphicon-user" aria-hidden="true">&nbsp;&nbsp;</span><span style="font-weight:bold;"><%= attendee.attendee.lastname %>, <%= attendee.attendee.firstname %></span></div>
@@ -29,4 +30,6 @@
     <% end %>
 
 </div>
+<br /><br />
+<p align="center">[ <%= link_to "Back To Event Page", event_path(@event) %> ]</p>
 <% end %>

@@ -48,7 +48,7 @@ end
 
 
 def show
-    
+    @attendees = EventAttendee.where(event_id: @event.id).order(:lastname)
 end
 
 

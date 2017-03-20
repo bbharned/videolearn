@@ -42,15 +42,18 @@
                 <% end %>
             </div>
         </div>
-
+        
         <div class="row">
             <div class="col-md-12">
-                <p><%= truncate(event.description, length: 150) %>...</p>
+                <p><%= truncate(event.description, length: 75) %>...</p>
+                <% if logged_in? && current_user.admin? %>
                 <p class="small">
                 
                 capacity: <%= event.capacity %> &nbsp;&nbsp;|&nbsp;&nbsp; currently registered:&nbsp; <%= EventAttendee.where(:event_id => event.id).count %></p>
+                <% end %>
             </div>
         </div>
+        
         <% if event.eventcats.any? %>
             <p><%= render event.eventcats %>&nbsp;</p>
         <% end %>

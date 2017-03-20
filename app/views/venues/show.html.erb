@@ -11,7 +11,9 @@
      <br /><br /><br />     
      </div>
  </div>
-<hr />    
+<hr /> 
+<p align="center">[&nbsp;<%= link_to "Back to All Event Venues", venues_path %> &nbsp;|&nbsp; <%= link_to "Back to All Events", events_path %>&nbsp;]</p>
+<br />   
 <% if @venue.events.any? %>
     <h4>Events scheduled at this location</h4>
     <%= render 'events/event', obj: @venue.events %>
@@ -20,4 +22,3 @@
     <h4 align="center">There are currently no events scheduled at this location.</h4>
 <% end %>
 <br /><br />
-<p align="center">[<%= link_to "Back to All Event Venues", venues_path %> &nbsp;|&nbsp; <%= link_to "Back to All Events", events_path %>]</p>
