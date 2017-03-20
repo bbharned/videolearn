@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170314193829) do
+ActiveRecord::Schema.define(version: 20170320124428) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
@@ -38,8 +38,9 @@ ActiveRecord::Schema.define(version: 20170314193829) do
   create_table "event_attendees", force: :cascade do |t|
     t.integer  "attendee_id"
     t.integer  "event_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "checkedin",   default: false
   end
 
   create_table "event_categories", force: :cascade do |t|

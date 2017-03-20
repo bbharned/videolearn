@@ -43,6 +43,8 @@ class AttendeesController < ApplicationController
         redirect_to attendees_path
     end
 
+
+
 	
 
 	private

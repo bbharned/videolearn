@@ -156,6 +156,9 @@ span.badge a {color:#FFFFFF;}
 .event-card img {
     width:95%; height:150px; margin: auto; margin-top: 15px;
 }
+.attendee-checkin-row {
+    margin-bottom: 10px;
+}
 
 
 
