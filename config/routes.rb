@@ -25,6 +25,7 @@ Rails.application.routes.draw do
 	get 'pages/users/filter_company', to: 'users#filter_company'
 	get 'pages/users/filter_login', to: 'users#filter_login'
 	get 'stats', to: 'pages#stats'
+	get 'ereport', to: 'events#ereport'
 
 	get 'login', to: 'sessions#new'
 	post 'login', to: 'sessions#create'

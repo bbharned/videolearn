@@ -68,6 +68,15 @@ def destroy
 end
 
 
+def ereport
+    if logged_in? && current_user.admin?
+        @events = Event.all.order(:time).reverse_order
+        @allregistered = EventAttendee.all.order(:lastname)
+    else
+        flash[:danger] = "only admins can view reports"
+        redirect_to events_path
+    end
+end
 
 
 

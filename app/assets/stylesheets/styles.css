@@ -16,7 +16,7 @@
     margin-bottom: 10px;
 }
 .well {
-    max-width: 96%; padding-left: 2% !important; padding-right: 2% !important;
+    max-width: 98%; padding-left: 2% !important; padding-right: 2% !important;
 }
 .well-sm {
     margin-bottom: 7px !important;
@@ -151,7 +151,7 @@ span.badge a {color:#FFFFFF;}
     max-width:95%; margin: auto;
 }
 .event-card {
-    padding-bottom: 40px; position: relative; min-height:480px; 
+    padding-bottom: 40px; position: relative; min-height:475px; 
 }
 .event-card img {
     width:95%; height:150px; margin: auto; margin-top: 15px;
@@ -161,6 +161,21 @@ span.badge a {color:#FFFFFF;}
 }
 .attendance {
     float:right; margin-top: -50px;
+}
+.event-report-time {
+    text-align: right; padding-top: 12px;
+}
+.ereport-stat-box {
+    text-align:center;
+}
+.ereport-stat-box h1 {
+    font-size: 4em;
+}
+.ereport-stat-box p {
+    line-height: 1.1em; padding-top: 25px;
+}
+.ecategory-badge {
+    text-align: right;
 }
 
 
@@ -387,5 +402,22 @@ span.badge a {color:#FFFFFF;}
 }
 .state-dropdown {
     margin-top: -10px; margin-bottom: 12px;
+}
+.event-report-time {
+    text-align: left; padding-top: 0px;
+}
+.ereport-stat-box {
+    width:80%; margin:auto; border-bottom: 1px solid #E7E7E7;
+    margin-bottom: 25px;
+}
+.ereport-stat-box:last-child {
+    border-bottom:none;
+}
+.ereport-stat-box h1,
+.ereport-stat-box p {
+    margin-bottom: 25px;
+}
+.ecategory-badge {
+    text-align: left;
 }
 }
