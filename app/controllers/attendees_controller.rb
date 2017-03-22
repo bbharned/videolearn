@@ -1,6 +1,6 @@
 class AttendeesController < ApplicationController
 	before_action :require_user, except: [:new, :create]
-	before_action :require_admin, only: [:index, :edit, :destroy]
+	before_action :require_admin, only: [:index, :edit, :show, :destroy]
 
 	def index
 		@events = Event.all
@@ -17,6 +17,11 @@ class AttendeesController < ApplicationController
 		@attendee = Attendee.find(params[:id])
 		@event = EventAttendee.where(:attendee_id => @attendee.id).last
 	end
+
+    def show
+        @attendee = Attendee.find(params[:id])
+        #@registeredevents = EventAttendee.where(attendee_id: @attendee.id)
+    end
 
 
 	def create       
@@ -50,7 +55,7 @@ class AttendeesController < ApplicationController
 	private
 
 		def attendee_params
-			params.require(:attendee).permit(:firstname, :lastname, :company, :email, :relationship, event_ids: [])
+			params.require(:attendee).permit(:firstname, :lastname, :company, :email, :street, :street2, :city, :state, :zip, :relationship, event_ids: [])
 		end
 
 		def require_admin

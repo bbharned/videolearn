@@ -62,7 +62,7 @@
     <% @attendees.each do | role | %>
         <div class="row">
             <div class="col-sm-3 col-sm-offset-3">
-                <p style="font-weight:bold;"><%= role.attendee.firstname %> <%= role.attendee.lastname %></p>
+                <p style="font-weight:bold;"><%= link_to "#{role.attendee.firstname} #{role.attendee.lastname}", attendee_path(role.attendee) %></p>
             </div>
             <div class="col-sm-3">
                 <p><%= role.attendee.company%></p>

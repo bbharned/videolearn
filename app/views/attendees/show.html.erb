@@ -1,0 +1,41 @@
+<h1 class="page-header">Attendee Profile</h1>
+<div class="well">
+<div class="row">
+	<div class="col-sm-8">
+		<h3><%= @attendee.firstname %> <%= @attendee.lastname %></h3>
+	</div>
+	<div class="col-sm-4 relationship-right">
+		<p><%= @attendee.relationship %></p>
+	</div>
+</div>
+<div class="row">
+	<div class="col-sm-12">
+		<h5><%= @attendee.company %></h5>
+	</div>
+</div>
+<hr />
+<% if @attendee.street == nil || @attendee.city == nil || @attendee.state == nil || @attendee.zip == nil  %>
+	<p style="color:darkorange;">No Address Provided</p>
+<% else %>
+	<p><%= @attendee.street %>, <%= @attendee.street2 %><br />
+	<%= @attendee.city %>, <%= @attendee.state %> <%= @attendee.zip %></p>
+<% end %>
+<hr />
+<p><a href="mailto:<%= @attendee.email %>"><%= @attendee.email %></a></p>
+
+
+</div>
+
+
+<hr />
+
+
+<% if @attendee.events.any? %>
+	<h4>Event Registered For</h4>
+	<%= render 'events/event', obj: @attendee.events %>
+<% else %>
+    <br /><br /><br /><br />
+    <h4 align="center">There are currently no events scheduled at this location.</h4>
+
+
+<% end %>
