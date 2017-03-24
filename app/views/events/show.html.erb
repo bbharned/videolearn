@@ -57,7 +57,9 @@
 <br /><br />
 <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
 <hr />
-<h4 align="center">Currently Registered for Event <span style="font-weight:normal; font-size: .85em;">(<%= @attendees.count %> registered)</span></h4><br />
+<h4 align="center">Currently Registered for Event <span style="font-weight:normal; font-size: .85em;">(<%= @attendees.count %> registered)</span></h4>
+<div align="center"><a href="/events/<%= @event.id %>.csv" class="btn btn-default btn-sm">Download (CSV)</a></div>
+<br />
 <div align="center">
     <% @attendees.each do | role | %>
         <div class="row">

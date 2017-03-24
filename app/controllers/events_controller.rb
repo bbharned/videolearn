@@ -49,6 +49,12 @@ end
 
 def show
     @attendees = EventAttendee.where(event_id: @event.id).order(:lastname)
+    @export = Attendee.where(id: @attendees.ids)
+
+    respond_to do |format|
+      format.html
+      format.csv { send_data @export.to_csv, filename: "#{@event.name}-registered-#{Date.today}.csv" }
+    end
 end
 
 

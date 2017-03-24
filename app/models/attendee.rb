@@ -10,4 +10,16 @@ class Attendee < ActiveRecord::Base
                 format: { with: VALID_EMAIL_REGEX }
     before_save { self.email = email.downcase }
 
+    def self.to_csv
+	    attributes = %w{id firstname lastname email company relationship street street2 city state zip}
+
+	    CSV.generate(headers: true) do |csv|
+	      csv << attributes
+
+	      all.each do |attendee|
+	        csv << attributes.map{ |attr| attendee.send(attr) }
+	      end
+	    end
+	 end
+
 end
