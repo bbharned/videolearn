@@ -6,7 +6,7 @@ def index
 end
 
 def new
-    if logged_in? && current_user.admin?
+    if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?)
         @event = Event.new
     else
         flash[:danger] = "Only Admins can create events"
@@ -16,7 +16,7 @@ end
 
 
 def edit
-	if logged_in? && current_user.admin?
+	if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?)
         
     else
         flash[:danger] = "Only Admins can edit events"
@@ -69,7 +69,7 @@ end
 
 
 def ereport
-    if logged_in? && current_user.admin?
+    if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?)
         @events = Event.all.order(:time).reverse_order
         @allregistered = EventAttendee.all.order(:lastname)
     else

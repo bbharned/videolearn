@@ -1,5 +1,5 @@
 <h1 class="page-header">Event Venues</h1>
-<% if logged_in? && current_user.admin? %>
+<% if (logged_in? and current_user.admin?) || (logged_in? and current_user.evtadmin?) %>
     <%= link_to "Create New Venue", new_venue_path, class: "btn btn-default new-venue-button" %>
 <% end %>
 <% Venue.all.each do |venue| %>
@@ -13,7 +13,7 @@
         </p>
         <br />
         <p align="center"><%= link_to "See Events at this location »", venue_path(venue) %></p>
-        <% if logged_in? and current_user.admin? %>
+        <% if (logged_in? and current_user.admin?) || (logged_in? and current_user.evtadmin?) %>
             <hr />
             <p align="right" style="margin-bottom:0px;">
             <%= link_to "Edit Venue", edit_venue_path(venue), class: "btn btn-primary btn-sm" %>

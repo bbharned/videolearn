@@ -71,7 +71,7 @@
                 <% elsif event.time < DateTime.current %>
                     <%= link_to "Event Past", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm disabled" %>
                 <% end %>
-                <% if logged_in? && current_user.admin? %>
+                <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
                     <%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-sm" %> 
                         
                     <%= link_to 'Delete', event_path(event), method: :delete, 

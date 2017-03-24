@@ -1,7 +1,7 @@
 class EventAttendeesController < ApplicationController
 
   	def checkin
-      if logged_in? && current_user.admin?
+      if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?)
         @event = Event.find(params[:id])
         @users = Attendee.all.order(:lastname)
         @attendees = EventAttendee.where(event_id: @event.id).order(:lastname)

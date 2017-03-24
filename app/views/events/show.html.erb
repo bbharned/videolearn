@@ -1,7 +1,7 @@
 <div class="row">
     <div class="well col-sm-12" style="margin:auto; padding-bottom: 25px;">
         <h2><%= @event.name %> </h2>
-        <% if logged_in? && current_user.admin? %>
+        <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
             <div class="attendance"><%= link_to "Take Attendance", checkin_path(@event), class: "btn btn-default btn-sm" %></div>
         <% end %>
         <br />
@@ -37,7 +37,7 @@
                 <% elsif @event.time < Time.zone.now %>
                     <%= link_to "Event Past", new_attendee_path(:event_id => @event.id), class: "btn btn-primary btn-sm disabled" %>
                 <% end %>
-                <% if logged_in? && current_user.admin? %>
+                <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
                     <%= link_to "Edit", edit_event_path(@event), class: "btn btn-default btn-sm" %> 
                         
                     <%= link_to 'Delete', event_path(@event), method: :delete, 
@@ -55,7 +55,7 @@
 
 
 <br /><br />
-<% if logged_in? && current_user.admin? %>
+<% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
 <hr />
 <h4 align="center">Currently Registered for Event <span style="font-weight:normal; font-size: .85em;">(<%= @attendees.count %> registered)</span></h4><br />
 <div align="center">
