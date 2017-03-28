@@ -160,7 +160,7 @@ span.badge a {color:#FFFFFF;}
     margin-bottom: 10px;
 }
 .attendance {
-    float:right; margin-top: -50px;
+    text-align: right;
 }
 .event-report-time {
     text-align: right; padding-top: 12px;

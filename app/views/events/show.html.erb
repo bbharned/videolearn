@@ -1,9 +1,19 @@
 <div class="row">
     <div class="well col-sm-12" style="margin:auto; padding-bottom: 25px;">
+        <div class="row">
+        <div class="col-sm-7">
         <h2><%= @event.name %> </h2>
+        </div>
+        <div class="col-sm-5">
         <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
-            <div class="attendance"><%= link_to "Take Attendance", checkin_path(@event), class: "btn btn-default btn-sm" %></div>
+            <div class="attendance">
+                <%= link_to "Take Attendance", checkin_path(@event), class: "btn btn-default btn-sm" %>
+                <% @registered = EventAttendee.where(:event_id => @event.id) %>
+                <a href="mailto:<% @registered.each do |student| %><%= student.attendee.email %>,<% end %>" class="btn btn-default btn-sm">Email Registrants</a>   
+            </div>
         <% end %>
+        </div>
+        </div>
         <br />
         <h4>Description:</h4>
         <p><%= @event.description %></p>
