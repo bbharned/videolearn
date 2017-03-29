@@ -3,7 +3,7 @@
     <%= link_to "Create New Venue", new_venue_path, class: "btn btn-default new-venue-button" %>
 <% end %>
 <% Venue.all.each do |venue| %>
-    <div class="well" style="margin:auto;">
+    <div class="well" style="margin:auto; margin-bottom: 10px;">
         <h4 align="center"><%= venue.name %></h4>
         <p align="center"><%= venue.street %><br /><%= venue.city %><% if venue.city != "" %>,<% end %> <%= venue.state %> <%= venue.zipcode %></p>
         <p align="center">
