@@ -18,7 +18,9 @@
       <div style="width:90%; max-width: 500px; padding: 10px 20px 20px 20px; background-color: #E6E6E6; border-radius: 20px; margin-bottom: 55px;">
         <h4 style="margin-bottom: 0px; text-decoration: underline;">Event Details</h4>
         <p><%= @event.time.to_s(:time_display) if @event.time %></p>
+        <% if @event.venues.any? %>
         <p><%= @event.venues.last.name %><br /><%= @event.venues.last.street %><br /><%= @event.venues.last.city %>, <%= @event.venues.last.state %> <%= @event.venues.last.zipcode %></p>
+        <% end %>
       </div>
 
       <p style="max-width:500px; padding: 0px 20px; font-size: .9em;">If for any reason you did not intend to register for this event,<br />please <a href="mailto:info@thinmanager.com">contact&nbsp;us</a>.</p>

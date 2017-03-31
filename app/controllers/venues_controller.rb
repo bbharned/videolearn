@@ -62,9 +62,13 @@ private
     end
 
     def require_admin
-        if !logged_in? || !current_user.evtadmin?
+        if logged_in? && current_user.evtadmin?
+
+        elsif logged_in? && current_user.admin?
+        
+        else    
             flash[:danger] = "You are not permitted to perform that action"
-            redirect_to root_path
+            redirect_to venues_path
         end
     end
 

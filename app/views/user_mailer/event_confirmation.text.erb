@@ -12,11 +12,12 @@ Event Description
 
 Event Details
 
-<%= @event.time.to_s(:time_display) %>
+<%= @event.time.to_s(:time_display) if @event.time %>
 
+<% if @event.venues.any? %>
 <%= @event.venues.last.name %>
 <%= @event.venues.last.street %>
 <%= @event.venues.last.city %>, <%= @event.venues.last.state %> <%= @event.venues.last.zipcode %>
-
+<% end %>
 
 If for any reason you did not intend to register for this event,<br />please email us at info@thinmanager.com.
