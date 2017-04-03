@@ -1,4 +1,3 @@
-/* Global styles */
 .appear, .appear-sooner {
     display: none;
 }
@@ -389,6 +388,9 @@ span.badge a {color:#FFFFFF;}
 }
 .small-label {
     text-align: left; 
+}
+.lower-footer-boxes .lower-foot-box {
+    border-right:none;
 }
 }
 
