@@ -64,13 +64,17 @@
         
             <div class="col-md-12 ">
                 <% @registered = EventAttendee.where(:event_id => event.id) %>
-                <% if !@registered.any? || event.capacity > @registered.count  %>
+            <% if event.capacity != nil %>    
+                <% if !@registered.any? || @registered.count < event.capacity %>
                     <%= link_to "Register", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm" %> 
                 <% elsif @registered.any? && event.capacity <= @registered.count %>
                     <%= link_to "Class Full", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm disabled" %>
                 <% elsif event.time < DateTime.current %>
                     <%= link_to "Event Past", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm disabled" %>
                 <% end %>
+            <% else %>
+                <%= link_to "Register", new_attendee_path(:event_id => event.id), class: "btn btn-primary btn-sm" %> 
+            <% end %>       
                 <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
                     <%= link_to "Edit", edit_event_path(event), class: "btn btn-default btn-sm" %> 
                         
