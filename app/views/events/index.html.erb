@@ -1,0 +1,10 @@
+<h1 class="page-header">Upcoming ThinManager Events</h1>
+<% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
+    <%= link_to "New Event", new_event_path, class: "btn btn-default new-venue-button" %>
+<% end %>
+<%= render "eventcats/nav" %>
+<br />
+<%= render 'event', obj: @events %>
+
+
+

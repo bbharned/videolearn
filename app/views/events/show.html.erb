@@ -1,0 +1,85 @@
+<div class="row">
+    <div class="well col-sm-12" style="margin:auto; padding-bottom: 25px;">
+        <div class="row">
+        <div class="col-sm-7">
+        <h2><%= @event.name %> </h2>
+        </div>
+        <div class="col-sm-5">
+        <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
+            <div class="attendance">
+                <%= link_to "Take Attendance", checkin_path(@event), class: "btn btn-default btn-sm" %>
+                <% @registered = EventAttendee.where(:event_id => @event.id) %>
+                <a href="mailto:<% @registered.each do |student| %><%= student.attendee.email %>,<% end %>" class="btn btn-default btn-sm">Email Registrants</a>   
+            </div>
+        <% end %>
+        </div>
+        </div>
+        <br />
+        <h4>Description:</h4>
+        <p><%= @event.description %></p>
+        <% if @event.eventcats.any? %>
+            <p style="margin-top:25px;"><%= render @event.eventcats %>&nbsp;</p>
+        <% end %>
+        <hr />
+        <% if @event.time == nil %>
+            <p>No date or time currently set</p>
+        <% else %>  
+            <p style="font-weight:bold;"><%= @event.time.to_s(:time_display) %></p>
+        <% end %>
+        <% if @event.venues == [] %>
+            <p>No event location set</p>
+        <% else %>  
+            <% if @event.venues.any? %>
+                <% @event.venues.each do |venue| %>
+                <p><span style="font-weight:bold;">Event Location:</span> <%= link_to "#{venue.name}", venue_path(venue) %></p>
+                <% end %>
+            <% end %>
+        <% end %>
+        <hr />
+        <div class="row action-buttons">
+        
+            <div class="col-md-12 ">
+                <% @registered = EventAttendee.where(:event_id => @event.id) %>
+                <% if (!@registered.any? || @event.capacity > @registered.count) && @event.time >= Time.now %>
+                    <%= link_to "Register", new_attendee_path(:event_id => @event.id), class: "btn btn-primary btn-sm" %> 
+                <% elsif @registered.any? && @event.capacity <= @registered.count %>
+                    <%= link_to "Class Full", new_attendee_path(:event_id => @event.id), class: "btn btn-primary btn-sm disabled" %>
+                <% elsif @event.time < Time.zone.now %>
+                    <%= link_to "Event Past", new_attendee_path(:event_id => @event.id), class: "btn btn-primary btn-sm disabled" %>
+                <% end %>
+                <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
+                    <%= link_to "Edit", edit_event_path(@event), class: "btn btn-default btn-sm" %> 
+                        
+                    <%= link_to 'Delete', event_path(@event), method: :delete, 
+                            data: {confirm: "Are you sure you want to delete this session?"}, 
+                            class: "btn  btn-danger btn-sm", style: "color:#FFFFFF;" %>
+                <% end %>
+            </div>
+        
+        </div>
+    </div>
+</div>
+
+<br /><br />
+<p align="center">[ <%= link_to "Back To All Events", events_path %> ]</p>
+
+
+<br /><br />
+<% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
+<hr />
+<h4 align="center">Currently Registered for Event <span style="font-weight:normal; font-size: .85em;">(<%= @attendees.count %> registered)</span></h4>
+<div align="center"><a href="/events/<%= @event.id %>.csv" class="btn btn-default btn-sm">Download (CSV)</a></div>
+<br />
+<div align="center">
+    <% @attendees.each do | role | %>
+        <div class="row">
+            <div class="col-sm-3 col-sm-offset-3">
+                <p style="font-weight:bold;"><%= link_to "#{role.attendee.firstname} #{role.attendee.lastname}", attendee_path(role.attendee) %></p>
+            </div>
+            <div class="col-sm-3">
+                <p><%= role.attendee.company%></p>
+            </div>
+        </div>
+    <% end %>
+</div>
+<% end %>

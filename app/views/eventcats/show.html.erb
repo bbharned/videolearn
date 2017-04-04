@@ -1,0 +1,9 @@
+<h1 class="page-header">Scheduled <%= @ecat.name %>&nbsp;&nbsp;
+<% if logged_in? && current_user.admin? %>
+<span class="badge"><%= link_to "Edit Category Name", edit_eventcat_path(@ecat) %></span>
+<% end %>
+</h1>
+<%= render 'nav' %>
+<br />
+<%= render 'events/event', obj: @ecat_events %>
+

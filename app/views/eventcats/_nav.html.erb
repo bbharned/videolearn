@@ -1,0 +1,12 @@
+<div class="row" style="margin-bottom:20px;">
+    <div class="col-md-12">
+        <div class="col-md-2">
+        <%= link_to "All Events", events_path %>
+        </div>
+        <% Eventcat.all.each do |category| %>
+            <div class="col-md-2">
+                <%= link_to "#{category.name}", eventcat_path(category) %>
+            </div>
+        <% end %>
+    </div>
+</div>

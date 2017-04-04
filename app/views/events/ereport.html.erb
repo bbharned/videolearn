@@ -1,0 +1,62 @@
+<h1 class="page-header">Event Reports</h1>
+
+<% @events.each do |event| %>
+
+<div class="well" style="margin:auto; margin-bottom: 25px;">
+	<div class="row">
+		<div class="col-sm-8">
+		<h4><%= link_to "#{event.name}", event_path(event) %>&nbsp;&nbsp;&nbsp;<% if event.time < DateTime.current %><span style="font-size:.8em; font-weight: normal; color:darkred;"> ( Event Complete )</span><% else %><span style="font-size:.8em; font-weight: normal; color:limegreen;"> ( Event Active )</span><% end %></span></h4>
+		</div>
+		<div class="col-sm-4"><p class="event-report-time"><%= event.time.to_s(:time_display) %></p></div>
+	</div>
+	<% if event.eventcats.any? %>
+		<div class="row">
+			<div class="col-sm-12 ecategory-badge">
+	        	<p><%= render event.eventcats %>&nbsp;</p>
+	        </div>
+	    </div>
+    <% end %>
+	<div class="row">
+		<div class="col-sm-12"><%= event.venues.last.name  if event.venues.any? %></div>
+	</div>
+	
+	
+	
+	<hr />
+	<div class="row">
+	<div class="col-sm-4 ereport-stat-box">
+		<h4>Registered</h4>
+		<h1><%= @allregistered.where(event_id: event.id).count %></h1>
+	</div>
+	<div class="col-sm-4 ereport-stat-box">
+		<h4>Capacity</h4>
+		
+		<% if event.capacity == nil %>
+			<p>not<br />set</p>
+		<% else %>
+			<h1><%= event.capacity %></h1>
+		<% end %>	
+		
+	</div>
+	<div class="col-sm-4 ereport-stat-box">
+		<h4>Attended</h4>
+		<h1><%= @allregistered.where(event_id: event.id, checkedin: true).count %></h1>
+	</div>
+	</div>
+	<hr />
+	<h3 align="center" style="margin-bottom: 12px; text-decoration: underline;">Attended</h3>
+	<div class="row">
+		<% @allregistered.where(event_id: event.id, checkedin: true).each do | registration | %>
+			<div class="col-sm-4" align="center">
+				<span style="font-weight:bold;"><%= registration.attendee.firstname %> <%= registration.attendee.lastname %></span> - <%= registration.attendee.company %>
+			</div>
+		<% end %>
+		<% if @allregistered.where(event_id: event.id, checkedin: true).count < 1 %>
+			<div class="col-sm-12" align="center">
+				<p style="color:darkorange;">No One Has Attended</p>
+			</div>
+		<% end %>
+	</div>
+</div>
+
+<% end %>

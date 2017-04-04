@@ -1,0 +1,24 @@
+<h1 class="page-header"><%= @venue.name %></h1>
+ <div class="row">
+     <div class="col-sm-10 col-sm-offset-1">
+     <h4><%= @venue.street %><br />
+     <%= @venue.city %><% if @venue.city != "" %>,<% end %> 
+     <%= @venue.state %> <%= @venue.zipcode %></h4>
+     <br />
+     <% if @venue.city != "" %>
+     <%= link_to "Get Directions »", "https://www.google.com/maps?q=#{@venue.street}+#{@venue.city}+#{@venue.state}+#{@venue.zipcode}", target: "_blank" %>
+     <% end %>
+     <br /><br /><br />     
+     </div>
+ </div>
+<hr /> 
+<p align="center">[&nbsp;<%= link_to "Back to All Event Venues", venues_path %> &nbsp;|&nbsp; <%= link_to "Back to All Events", events_path %>&nbsp;]</p>
+<br />   
+<% if @venue.events.any? %>
+    <h4>Events scheduled at this location</h4>
+    <%= render 'events/event', obj: @venue.events %>
+<% else %>
+    <br /><br /><br /><br />
+    <h4 align="center">There are currently no events scheduled at this location.</h4>
+<% end %>
+<br /><br />

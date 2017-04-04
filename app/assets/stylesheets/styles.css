@@ -1,4 +1,3 @@
-/* Global styles */
 .appear, .appear-sooner {
     display: none;
 }
@@ -16,7 +15,7 @@
     margin-bottom: 10px;
 }
 .well {
-    max-width: 100%; padding-left: 2% !important; padding-right: 2% !important;
+    max-width: 98%; padding-left: 2% !important; padding-right: 2% !important;
 }
 .well-sm {
     margin-bottom: 7px !important;
@@ -127,7 +126,62 @@ ul.quiz-options li {
 .show-page-badge img {
     max-width:125px;
 }
-
+.ecategory-listing {
+    list-style:none; margin:auto; margin-left: -35px;
+}
+.ecategory-title {
+    font-size:1.5em;
+}
+span.badge a {color:#FFFFFF;}
+.new-venue-button {
+    float:right; margin-top: -65px;
+}
+.action-buttons{
+    /*text-align: right; padding-right: 15px;*/
+    position:absolute; bottom:7px; right:10px; text-align: right;
+}
+.event-cost {
+    margin-top:12px; 
+}
+.state-dropdown {
+    margin-top: 6px;
+}
+.venue-form {
+    max-width:95%; margin: auto;
+}
+.event-card {
+    padding-bottom: 40px; position: relative; min-height:475px;
+}
+.event-card img {
+    width:95%; max-height:150px; max-width: 300px; margin: auto; margin-top: 15px;
+}
+.attendee-checkin-row {
+    margin-bottom: 10px;
+}
+.attendance {
+    text-align: right;
+}
+.event-report-time {
+    text-align: right; padding-top: 12px;
+}
+.ereport-stat-box {
+    text-align:center;
+}
+.ereport-stat-box h1 {
+    font-size: 4em;
+}
+.ereport-stat-box p {
+    line-height: 1.1em; padding-top: 25px;
+}
+.ecategory-badge {
+    text-align: right;
+}
+.small-label {
+    text-align: right; padding-top: 7px;
+}
+.relationship-right {
+    text-align: right;
+}
 
 
 
@@ -329,6 +383,15 @@ ul.quiz-options li {
 .need-space {
     margin-left:0px;
 }
+.new-venue-button {
+    float:none; margin-top: -10px; margin-bottom: 20px;
+}
+.small-label {
+    text-align: left; 
+}
+.lower-footer-boxes .lower-foot-box {
+    border-right:none;
+}
 }
 
 @media screen and (max-width:766px) {
@@ -348,5 +411,27 @@ ul.quiz-options li {
 .new-vid-button {
     float:none; margin-top: -10px; margin-bottom: 35px;
 }
-
+.state-dropdown {
+    margin-top: -10px; margin-bottom: 12px;
+}
+.event-report-time {
+    text-align: left; padding-top: 0px;
+}
+.ereport-stat-box {
+    width:80%; margin:auto; border-bottom: 1px solid #E7E7E7;
+    margin-bottom: 25px;
+}
+.ereport-stat-box:last-child {
+    border-bottom:none;
+}
+.ereport-stat-box h1,
+.ereport-stat-box p {
+    margin-bottom: 25px;
+}
+.ecategory-badge {
+    text-align: left;
+}
+.relationship-right {
+    text-align: left;
+}
 }

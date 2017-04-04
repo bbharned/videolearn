@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170105150802) do
+ActiveRecord::Schema.define(version: 20170324140228) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
@@ -19,10 +19,60 @@ ActiveRecord::Schema.define(version: 20170105150802) do
     t.datetime "updated_at",                 null: false
   end
 
+  create_table "attendees", force: :cascade do |t|
+    t.string   "firstname"
+    t.string   "lastname"
+    t.string   "company"
+    t.string   "email"
+    t.string   "relationship"
+    t.datetime "created_at",   null: false
+    t.datetime "updated_at",   null: false
+    t.string   "street"
+    t.string   "street2"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zip"
+  end
+
   create_table "categories", force: :cascade do |t|
     t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "event_attendees", force: :cascade do |t|
+    t.integer  "attendee_id"
+    t.integer  "event_id"
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
+    t.boolean  "checkedin",   default: false
+    t.string   "lastname"
+  end
+
+  create_table "event_categories", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "eventcat_id"
+  end
+
+  create_table "event_venues", force: :cascade do |t|
+    t.integer "event_id"
+    t.integer "venue_id"
+  end
+
+  create_table "eventcats", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "events", force: :cascade do |t|
+    t.string   "name"
+    t.text     "description"
+    t.datetime "time"
+    t.integer  "cost"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+    t.integer  "capacity"
   end
 
   create_table "question_answers", force: :cascade do |t|
@@ -85,6 +135,17 @@ ActiveRecord::Schema.define(version: 20170105150802) do
     t.datetime "reset_sent_at"
     t.boolean  "admin",           default: false
     t.datetime "lastlogin"
+    t.boolean  "evtadmin",        default: false
+  end
+
+  create_table "venues", force: :cascade do |t|
+    t.string   "name"
+    t.string   "street"
+    t.string   "city"
+    t.string   "state"
+    t.integer  "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "video_categories", force: :cascade do |t|

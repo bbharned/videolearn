@@ -30,11 +30,26 @@
             <li><%= link_to "Questions", questions_path %></li>
             <li><%= link_to "Answers", answers_path %></li>
             <li role="separator" class="divider"></li>
-            <li><%= link_to "Stats", stats_path %></li>
+            <li><%= link_to "Video Stats", stats_path %></li>
+            <li role="separator" class="divider"></li>
+            <li><%= link_to "Events", events_path %></li>
+            <li><%= link_to "Event Categories", eventcats_path %></li>
+            <li><%= link_to "Event Reports", ereport_path %></li>
+            <li><%= link_to "Venues", venues_path %></li>
             <li role="separator" class="divider"></li>
             <li><%= link_to "Dashboard", dashboard_path %></li>
             <!--<li role="separator" class="divider"></li>
             <li><a href="#">One more separated link</a></li>-->
+          </ul>
+        </li>
+        <% elsif (logged_in? && current_user.evtadmin?) && (logged_in? && !current_user.admin?) %>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Event Admin <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><%= link_to "Events", events_path %></li>
+            <li><%= link_to "Event Categories", eventcats_path %></li>
+            <li><%= link_to "Event Reports", ereport_path %></li>
+            <li><%= link_to "Venues", venues_path %></li>
           </ul>
         </li>
         <% end %>
@@ -50,6 +65,7 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false"><span class="appear">Support </span><span class="goAway glyphicon glyphicon-option-vertical" aria-hidden="true"></span> <span class="appear"><span class="caret"></span></span></a>
           <ul class="dropdown-menu">
+            <li><%= link_to "ThinManager Events", events_path %></li>
             <li><a href="http://www.thinmanager.com">ThinManager.com</a></li>
             <li><a href="http://www.thinmanager.com/support/">ThinManager Support</a></li>
             <li><a href="http://www.thinmanager.com/acp/contactus.php">Contact Us</a></li>
