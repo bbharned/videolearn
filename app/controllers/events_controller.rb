@@ -35,7 +35,7 @@ def create
         else
             render :new
         end
-    end
+end
 
 def update
     if @event.update(event_params)

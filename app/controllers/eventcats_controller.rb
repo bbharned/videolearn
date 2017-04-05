@@ -13,6 +13,16 @@ class EventcatsController < ApplicationController
         @ecat = Eventcat.find(params[:id])
     end
 
+    def create
+        @ecat = Eventcat.new(ecategory_params)
+        if @ecat.save
+            flash[:success] = "Event Category has been created"
+            redirect_to eventcats_path
+        else
+            render :new
+        end
+    end
+
 
     def update
         @ecat = Eventcat.find(params[:id])
