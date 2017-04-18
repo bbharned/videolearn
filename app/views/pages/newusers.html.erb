@@ -1,20 +1,16 @@
 <h1 class="page-header">Monthly New Users</h1>
+<div class="csv_button"><a href="/newusers.csv" class="btn btn-default btn-sm">Download (CSV)</a></div>
 
 <% if @jannewusers.any? %>
 <h4>January New Users</h4>
-<div class="well well-sm">
+<div class="well well-sm" style="margin: auto;">
 <% @jannewusers.each do |user| %>
 	
     <div class="row">
     <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
-    <div class="col-sm-4"><%= user.company %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
     <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
-    <% if logged_in? && (current_user == user || current_user.admin?)%>
-    <div class="col-sm-1"><%= link_to "Edit", edit_user_path(user) %></div>
-	    <% if logged_in? && current_user.admin? %>
-	    	<div class="col-sm-1"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"}, style: "color:red;" %></div>
-	    <% end %>
-    <% end %>
     </div>
 <% end %>
 </div>
@@ -23,19 +19,14 @@
 <br />
 <% if @febnewusers.any? %>
 <h4>February New Users</h4>
-<div class="well well-sm" style="margin-bottom:5px;">
+<div class="well well-sm" style="margin: auto;">
 <% @febnewusers.each do |user| %>
 	 
     <div class="row">
     <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
-    <div class="col-sm-4"><%= user.company %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
     <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
-    <% if logged_in? && (current_user == user || current_user.admin?)%>
-    <div class="col-sm-1"><%= link_to "Edit", edit_user_path(user) %></div>
-	    <% if logged_in? && current_user.admin? %>
-	    	<div class="col-sm-1"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"}, style: "color:red;" %></div>
-	    <% end %>
-    <% end %>
     </div>
 <% end %>
 </div>
@@ -45,19 +36,14 @@
 <br />
 <% if @marnewusers.any? %>
 <h4>March New Users</h4>
-<div class="well well-sm" style="margin-bottom:5px;">
+<div class="well well-sm" style="margin: auto;">
 <% @marnewusers.each do |user| %>
 	 
     <div class="row">
     <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
-    <div class="col-sm-4"><%= user.company %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
     <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
-    <% if logged_in? && (current_user == user || current_user.admin?)%>
-    <div class="col-sm-1"><%= link_to "Edit", edit_user_path(user) %></div>
-	    <% if logged_in? && current_user.admin? %>
-	    	<div class="col-sm-1"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"}, style: "color:red;" %></div>
-	    <% end %>
-    <% end %>
     </div>
 <% end %>
 </div>
@@ -66,19 +52,134 @@
 <br />
 <% if @aprilnewusers.any? %>
 <h4>April New Users</h4>
-<div class="well well-sm" style="margin-bottom:5px;">
+<div class="well well-sm" style="margin: auto;">
 <% @aprilnewusers.each do |user| %>
 	 
     <div class="row">
     <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
-    <div class="col-sm-4"><%= user.company %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
     <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
-    <% if logged_in? && (current_user == user || current_user.admin?)%>
-    <div class="col-sm-1"><%= link_to "Edit", edit_user_path(user) %></div>
-	    <% if logged_in? && current_user.admin? %>
-	    	<div class="col-sm-1"><%= link_to "Delete", user_path(user), method: :delete, data: {confirm: "Are you sure you want to delete this user?"}, style: "color:red;" %></div>
-	    <% end %>
-    <% end %>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @maynewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @maynewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @junenewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @junenewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @julynewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @julynewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @augnewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @augnewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @septnewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @septnewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @octnewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @octnewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @novnewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @octnewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    </div>
+<% end %>
+</div>
+<% end %>
+
+<% if @decnewusers.any? %>
+<h4>April New Users</h4>
+<div class="well well-sm" style="margin: auto;">
+<% @decnewusers.each do |user| %>
+	 
+    <div class="row">
+    <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
+    <div class="col-sm-3"><%= user.company %></div>
+    <div class="col-sm-3">Created: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.created_at.strftime("%b %d, %Y") if user.lastlogin %></span></div>
+    <div class="col-sm-3">Last Login: &nbsp;&nbsp;<span style="font-weight:bold;"><%= user.lastlogin.strftime("%b %d, %Y") if user.lastlogin %></span></div>
     </div>
 <% end %>
 </div>

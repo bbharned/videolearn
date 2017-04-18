@@ -19,6 +19,18 @@ class User < ActiveRecord::Base
     before_save { self.email = email.downcase }
     has_secure_password
 
+    def self.to_csv
+      attributes = %w{id firstname lastname email company created_at lastlogin}
+
+      CSV.generate(headers: true) do |csv|
+        csv << attributes
+
+        all.each do |attendee|
+          csv << attributes.map{ |attr| attendee.send(attr) }
+        end
+      end
+   end
+
 # Sets the password reset attributes.
   def create_reset_digest
     self.reset_token = User.new_token
