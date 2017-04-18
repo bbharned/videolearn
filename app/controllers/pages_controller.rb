@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
 	before_action :require_user, except: [:index]
-    before_action :require_admin, only: [:stats]
+    before_action :require_admin, only: [:stats, :newusers]
 
     def index
         @user = User.new
@@ -24,6 +24,16 @@ class PagesController < ApplicationController
         @watchedthisquarter = UserVideo.where(created_at: 3.months.ago..Date.tomorrow)
         @usersthisquarter = User.where(created_at: 3.months.ago..Date.tomorrow)
         @quizthisquarter = UserQuiz.where(created_at: 3.months.ago..Date.tomorrow)
+    end
+
+    def newusers
+        @users = User.all
+        #@jannewusers = User.where("created_at >= ? AND created_at <= ?", 3.months.ago, Date.tomorrow)
+        @jannewusers = User.where(created_at: Date.today.at_beginning_of_year..(Date.today.at_beginning_of_year + 1.month))
+        @febnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 1.month)..(Date.today.at_beginning_of_year + 2.months))
+        @marnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 2.month)..(Date.today.at_beginning_of_year + 3.months))
+        @aprilnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 3.month)..(Date.today.at_beginning_of_year + 4.months))
+        
     end
 
     def dashboard
