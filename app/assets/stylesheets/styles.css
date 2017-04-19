@@ -185,6 +185,9 @@ span.badge a {color:#FFFFFF;}
 .csv_button {
     float:right; margin-top: -60px;
 }
+.user_csv_button {
+    float:right; margin-top: -60px;
+}
 
 
 
@@ -436,5 +439,9 @@ span.badge a {color:#FFFFFF;}
 }
 .relationship-right {
     text-align: left;
+}
+.user_csv_button {
+    float:none; text-align: right; margin-top: 0px; margin-bottom: 25px;
+    margin-right: 12px;
 }
 }

@@ -1,4 +1,7 @@
 <h1 class="page-header">Registered Users <span style="font-size: .4em; font-style: italic; font-weight:normal;">( <%= pluralize(@users.count, "total user") %> )</span></h1>
+<% if current_user.admin? %>
+<div class="user_csv_button"><a href="/users.csv" class="btn btn-default btn-sm">Download (CSV)</a></div>
+<% end %>
 <div align="center"><%= will_paginate %></div>
 
 <div class="filter-heading well well-sm" style="background-color: #333333; color:#FFFFFF;">
