@@ -7,10 +7,11 @@ class UsersController < ApplicationController
 
     def index
         @users = User.paginate(page: params[:page], per_page: 50).order(:lastname)
+        @allusers = User.all
 
         respond_to do |format|
           format.html
-          format.csv { send_data @users.to_csv, filename: "All_Learning_Users-#{Date.today}.csv" }
+          format.csv { send_data @allusers.to_csv, filename: "All_Learning_Users-#{Date.today}.csv" }
         end
     end
 
