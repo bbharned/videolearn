@@ -27,19 +27,19 @@ class PagesController < ApplicationController
     end
 
     def newusers
-        @yearlynewusers = User.where(created_at: Date.today.at_beginning_of_year..Date.tomorrow)
-        @jannewusers = User.where(created_at: Date.today.at_beginning_of_year..(Date.today.at_beginning_of_year + 1.month))
-        @febnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 1.month)..(Date.today.at_beginning_of_year + 2.months))
-        @marnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 2.month)..(Date.today.at_beginning_of_year + 3.months))
-        @aprilnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 3.month)..(Date.today.at_beginning_of_year + 4.months))
-        @maynewusers = User.where(created_at: (Date.today.at_beginning_of_year + 4.month)..(Date.today.at_beginning_of_year + 5.months))
-        @junenewusers = User.where(created_at: (Date.today.at_beginning_of_year + 5.month)..(Date.today.at_beginning_of_year + 6.months))
-        @julynewusers = User.where(created_at: (Date.today.at_beginning_of_year + 6.month)..(Date.today.at_beginning_of_year + 7.months))
-        @augnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 7.month)..(Date.today.at_beginning_of_year + 8.months))
-        @septnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 8.month)..(Date.today.at_beginning_of_year + 9.months))
-        @octnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 9.month)..(Date.today.at_beginning_of_year + 10.months))
-        @novnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 10.month)..(Date.today.at_beginning_of_year + 11.months))
-        @decnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 11.month)..(Date.today.at_beginning_of_year + 12.months))
+        @yearlynewusers = User.where(created_at: Date.today.at_beginning_of_year..Date.tomorrow).order(:created_at)
+        @jannewusers = User.where(created_at: Date.today.at_beginning_of_year..(Date.today.at_beginning_of_year + 1.month)).order(:created_at)
+        @febnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 1.month)..(Date.today.at_beginning_of_year + 2.months)).order(:created_at)
+        @marnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 2.month)..(Date.today.at_beginning_of_year + 3.months)).order(:created_at)
+        @aprilnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 3.month)..(Date.today.at_beginning_of_year + 4.months)).order(:created_at)
+        @maynewusers = User.where(created_at: (Date.today.at_beginning_of_year + 4.month)..(Date.today.at_beginning_of_year + 5.months)).order(:created_at)
+        @junenewusers = User.where(created_at: (Date.today.at_beginning_of_year + 5.month)..(Date.today.at_beginning_of_year + 6.months)).order(:created_at)
+        @julynewusers = User.where(created_at: (Date.today.at_beginning_of_year + 6.month)..(Date.today.at_beginning_of_year + 7.months)).order(:created_at)
+        @augnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 7.month)..(Date.today.at_beginning_of_year + 8.months)).order(:created_at)
+        @septnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 8.month)..(Date.today.at_beginning_of_year + 9.months)).order(:created_at)
+        @octnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 9.month)..(Date.today.at_beginning_of_year + 10.months)).order(:created_at)
+        @novnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 10.month)..(Date.today.at_beginning_of_year + 11.months)).order(:created_at)
+        @decnewusers = User.where(created_at: (Date.today.at_beginning_of_year + 11.month)..(Date.today.at_beginning_of_year + 12.months)).order(:created_at)
         
 
 
