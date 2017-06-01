@@ -2,7 +2,7 @@
 <h3><%= "#{@user.company}" %><span style="font-size: .7em;"> -- <%= link_to "#{@user.email}", url_for("mailto:#{@user.email}") %></span></h3>
 
 <br /><br />
-<h4 class="page-header">Videos Watched</h4>
+<h4 class="page-header">Videos Watched &nbsp;<span style="font-size:.7em;">(count: <%= @user.videos.count if @user.videos.any? %>)</h4>
 <% if @user.videos.any? %>
 	<% @user.videos.each do |video| %>
 		<div class="row">
@@ -16,7 +16,7 @@
 <% end %>
 
 <br /><br />
-<h4 class="page-header">Quizes Completed</h4>
+<h4 class="page-header">Quizes Completed &nbsp;<span style="font-size:.7em;">(count: <%= @user.quizzes.count if @user.quizzes.any? %>)</span></h4>
 <% if @user.quizzes.any? %>
 	<% @user.quizzes.each do |quiz| %>
 		<div class="row">
