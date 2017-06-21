@@ -188,6 +188,9 @@ span.badge a {color:#FFFFFF;}
 .user_csv_button {
     float:right; margin-top: -60px;
 }
+p.num-disclaim {
+    font-size: .75em !important; padding-top: 9px !important;
+}
 
 
 

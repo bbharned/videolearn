@@ -10,6 +10,10 @@ class Attendee < ActiveRecord::Base
                 format: { with: VALID_EMAIL_REGEX }
     before_save { self.email = email.downcase }
 
+    before_validation :strip_contact_phone
+
+  
+
     def self.to_csv
 	    attributes = %w{id firstname lastname email company relationship street street2 city state zip}
 
@@ -21,5 +25,11 @@ class Attendee < ActiveRecord::Base
 	      end
 	    end
 	 end
+
+	protected  
+
+  	def strip_contact_phone
+	  self.phone.gsub!(/[^0-9]/, '')
+	end
 
 end

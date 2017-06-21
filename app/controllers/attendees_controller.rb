@@ -56,7 +56,7 @@ class AttendeesController < ApplicationController
 	private
 
 		def attendee_params
-			params.require(:attendee).permit(:firstname, :lastname, :company, :email, :street, :street2, :city, :state, :zip, :relationship, event_ids: [])
+			params.require(:attendee).permit(:firstname, :lastname, :company, :email, :street, :street2, :city, :state, :zip, :phone, :relationship, event_ids: [])
 		end
 
 		def require_admin
