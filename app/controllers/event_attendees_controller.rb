@@ -39,9 +39,15 @@ class EventAttendeesController < ApplicationController
       @message = params[:message][:sms_message]
       @event = Event.find(params[:id])
       @phones = params[:message][:phones]
-      puts @message
-      puts @phones
+      send_blowio(@message)
       redirect_to event_path(@event)
+    end
+
+    private 
+
+    def send_blowio(message)
+      @blowerio = RestClient::Resource.new(ENV['https://63374089-e29d-4b95-b9b3-ee018ee36e2b:uzEajBl37VrRN4u-ZNO1DA@api.blower.io'])
+      @blowerio['/messages'].post :to => '+12014783012', :message => @message
     end
 
       
