@@ -47,7 +47,7 @@ class EventAttendeesController < ApplicationController
 
     def send_blowio(message)
       @blowerio = RestClient::Resource.new(ENV['https://63374089-e29d-4b95-b9b3-ee018ee36e2b:uzEajBl37VrRN4u-ZNO1DA@api.blower.io'])
-      @blowerio['/messages'].post :to => '+12014783012', :message => @message
+      @blowerio['/messages'].post :to => '+12014783012', :message => message
     end
 
       
