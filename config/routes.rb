@@ -35,6 +35,9 @@ Rails.application.routes.draw do
 	get 'events/:id/checkin', to: 'event_attendees#checkin', as: 'checkin'
 	post 'events/:id/checkin', to: 'event_attendees#attended'
 
+	get 'events/:id/sms', to: 'event_attendees#sms', as: 'sms'
+	post 'events/:id/sms', to: 'event_attendees#sendit'
+
 	resources :password_resets, only: [:new, :create, :edit, :update]
 
 	resources :categories, except: [:destroy] 

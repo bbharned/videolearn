@@ -6,10 +6,11 @@
         </div>
         <div class="col-sm-5">
         <% if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?) %>
-            <div class="attendance">
+            <div class="attendance btn-group" role="group">
                 <%= link_to "Take Attendance", checkin_path(@event), class: "btn btn-default btn-sm" %>
                 <% @registered = EventAttendee.where(:event_id => @event.id) %>
-                <a href="mailto:<% @registered.each do |student| %><%= student.attendee.email %>,<% end %>" class="btn btn-default btn-sm">Email Registrants</a>   
+                <a href="mailto:<% @registered.each do |student| %><%= student.attendee.email %>,<% end %>" class="btn btn-default btn-sm">Email Registrants</a>
+                <%= link_to "SMS", sms_path(@event), class: "btn btn-default btn-sm" %>   
             </div>
         <% end %>
         </div>

@@ -19,6 +19,9 @@
 <% else %>
 	<p><%= @attendee.street %>, <%= @attendee.street2 %><br />
 	<%= @attendee.city %>, <%= @attendee.state %> <%= @attendee.zip %></p>
+	<% if @attendee.phone != nil && @attendee.phone != "" %>
+		<p>Phone: <%= @attendee.phone %></p>
+	<% end %>
 <% end %>
 <hr />
 <p><a href="mailto:<%= @attendee.email %>"><%= @attendee.email %></a></p>

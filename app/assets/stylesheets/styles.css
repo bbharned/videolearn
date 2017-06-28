@@ -159,7 +159,7 @@ span.badge a {color:#FFFFFF;}
     margin-bottom: 10px;
 }
 .attendance {
-    text-align: right;
+    float:right; margin-right: -12px;
 }
 .event-report-time {
     text-align: right; padding-top: 12px;
@@ -446,5 +446,8 @@ p.num-disclaim {
 .user_csv_button {
     float:none; text-align: right; margin-top: 0px; margin-bottom: 25px;
     margin-right: 12px;
+}
+.attendance {
+    float:none;
 }
 }

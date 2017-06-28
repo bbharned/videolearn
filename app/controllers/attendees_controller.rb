@@ -60,7 +60,9 @@ class AttendeesController < ApplicationController
 		end
 
 		def require_admin
-            if !logged_in? || !current_user.evtadmin?
+            if (logged_in? && current_user.evtadmin?) || (logged_in? && current_user.admin?)
+
+            else
                 flash[:danger] = "Only admin users can perform that action"
                 redirect_to events_path
             end
