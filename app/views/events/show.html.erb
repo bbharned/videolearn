@@ -33,6 +33,11 @@
             <% if @event.venues.any? %>
                 <% @event.venues.each do |venue| %>
                 <p><span style="font-weight:bold;">Event Location:</span> <%= link_to "#{venue.name}", venue_path(venue) %></p>
+                    <% if venue.city != "" %>
+                        <p><span style="font-weight:bold;">Directions:</span>&nbsp; 
+                        <%= link_to "Get Google Directions »", "https://www.google.com/maps?q=#{venue.street}+#{venue.city}+#{venue.state}+#{venue.zipcode}", target: "_blank" %>
+                        </p>
+                    <% end %>
                 <% end %>
             <% end %>
         <% end %>
