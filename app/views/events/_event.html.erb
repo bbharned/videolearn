@@ -12,7 +12,9 @@
 
             </div>
         </div>
-        <img src="#" alt=<%= "#{event.name}" %> />
+        <div class="event-card-image">
+        <%= link_to image_tag("ra-logo.png"), event_path(event), alt: event.name %>
+        </div>
         <div class="row">    
             <div class="col-md-12">
                 <% if event.cost == nil || event.cost == 0 %>

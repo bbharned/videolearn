@@ -152,8 +152,12 @@ span.badge a {color:#FFFFFF;}
 .event-card {
     padding-bottom: 40px; position: relative; min-height:475px;
 }
+.event-card .event-card-image {
+    width:85%; max-width: 300px; margin: auto; margin-top: 15px; 
+    height: 150px; text-align: center;
+}
 .event-card img {
-    width:95%; max-height:150px; max-width: 300px; margin: auto; margin-top: 15px;
+    width:100%; position: relative; top:20%;  
 }
 .attendee-checkin-row {
     margin-bottom: 10px;
