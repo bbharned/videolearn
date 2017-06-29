@@ -40,7 +40,8 @@ class EventAttendeesController < ApplicationController
       @event = Event.find(params[:id])
       @phones = params[:message][:phones]
       @phones.each do |number|
-        send_blowio(@message, number)
+        @number = "+1" + number
+        send_blowio(@message, @number)
       end
       redirect_to event_path(@event)
     end
@@ -49,7 +50,7 @@ class EventAttendeesController < ApplicationController
 
     def send_blowio(message, number)
       blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
-      blowerio['/messages'].post :to => "'+1"+number+"'", :message => message
+      blowerio['/messages'].post :to => number, :message => message
     end
 
       
