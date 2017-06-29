@@ -49,7 +49,7 @@ class EventAttendeesController < ApplicationController
 
     def send_blowio(message, number)
       blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
-      blowerio['/messages'].post :to => '+1#{number}', :message => message
+      blowerio['/messages'].post :to => "'"+"1"+number+"'", :message => message
     end
 
       
