@@ -1,4 +1,5 @@
 class EventAttendeesController < ApplicationController
+  before_action :set_phones, only: [:sendit]
 
   	def checkin
       if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?)
@@ -23,7 +24,7 @@ class EventAttendeesController < ApplicationController
         @event = Event.find(params[:id])
         @attendees = EventAttendee.where(event_id: @event.id).order(:lastname)
         @evt_users = Attendee.where(id: @attendees.ids)
-        @phones = Array.new
+        @phones = []
         @evt_users.each do |role|
           if role.phone != nil && role.phone != ""
             @phones.push role.phone
@@ -38,7 +39,7 @@ class EventAttendeesController < ApplicationController
     def sendit
       @message = params[:message][:sms_message]
       @event = Event.find(params[:id])
-      @phones = params[:message][:phones]
+      #@phones = params[:message][:phones]
       @phones.each do |number|
         @number = "+1" + number
         send_blowio(@message, @number)
@@ -53,6 +54,18 @@ class EventAttendeesController < ApplicationController
       blowerio['/messages'].post :to => number, :message => message
     end
 
+    def set_phones
+        @event = Event.find(params[:id])
+        @attendees = EventAttendee.where(event_id: @event.id).order(:lastname)
+        @evt_users = Attendee.where(id: @attendees.ids)
+        @evt_users = Attendee.where(id: @attendees.ids)
+        @phones = []
+        @evt_users.each do |role|
+          if role.phone != nil && role.phone != ""
+            @phones.push role.phone
+          end
+        end
+    end
       
 
 end
