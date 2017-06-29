@@ -39,15 +39,17 @@ class EventAttendeesController < ApplicationController
       @message = params[:message][:sms_message]
       @event = Event.find(params[:id])
       @phones = params[:message][:phones]
-      send_blowio(@message)
+      @phones.each do |number|
+        send_blowio(@message, number)
+      end
       redirect_to event_path(@event)
     end
 
     private 
 
-    def send_blowio(message)
+    def send_blowio(message, number)
       blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
-      blowerio['/messages'].post :to => '+12014783012, +16786415791', :message => message
+      blowerio['/messages'].post :to => '+1' + number, :message => message
     end
 
       
