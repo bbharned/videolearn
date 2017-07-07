@@ -18,6 +18,16 @@ class AttendeesController < ApplicationController
 		@event = EventAttendee.where(:attendee_id => @attendee.id).last
 	end
 
+    def update
+        @attendee = Attendee.find(params[:id])
+        if @attendee.update(attendee_params)
+            flash[:success] = "Attendee information was successfully updated"
+            redirect_to events_path
+        else
+            render 'edit'
+        end
+    end
+
     def show
         @attendee = Attendee.find(params[:id])
         #@registeredevents = EventAttendee.where(attendee_id: @attendee.id)

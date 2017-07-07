@@ -195,7 +195,8 @@
               [ ],
               ["ThinManager Channel Partner"], 
               ["ThinManager Systems Integrator"], 
-              ["End User/Customer"], 
+              ["End User/Customer"],
+              ["Employee/Staff"], 
               ["Other"]
               ], @attendee.relationship), class: "form-control" %>
             </div>
@@ -205,12 +206,13 @@
     <div class="row">
         <div class="col-md-7 col-md-offset-3">
             <%= f.submit(@attendee.new_record? ? "Register" : "Update Attendee", class: "btn btn-primary btn-lg") %>
-
         </div>
     </div>
     <br /><br />
     <div class="cancel-link-form" align="center">
+    
     <p>[ <%= link_to "Cancel & Return To All Events", events_path %> ]</p>
+    
     </div>
 </div>
 <% end %>

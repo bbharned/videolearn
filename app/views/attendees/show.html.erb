@@ -24,8 +24,14 @@
 	<% end %>
 <% end %>
 <hr />
+<div class="row">
+<div class="col-sm-7">
 <p><a href="mailto:<%= @attendee.email %>"><%= @attendee.email %></a></p>
-
+</div>
+<div class="col-sm-5" align="right">
+<%= link_to "Edit", edit_attendee_path(@attendee), class: "btn btn-default btn-sm" %> 
+</div>
+</div>
 
 </div>
 
