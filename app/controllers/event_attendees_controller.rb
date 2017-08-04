@@ -39,12 +39,20 @@ class EventAttendeesController < ApplicationController
     def sendit
       @message = params[:message][:sms_message]
       @event = Event.find(params[:id])
-      #@phones = params[:message][:phones]
+
       @phones.each do |number|
         @number = "+1" + number
         send_blowio(@message, @number)
       end
-      redirect_to event_path(@event)
+
+      if send_blowio()
+        flash[:success] = "Your SMS messages were sent"
+        redirect_to event_path(@event)
+      else
+        flash[:danger] = "Your SMS messages did not send completely"
+        redirect_to event_path(@event)
+      end
+      
     end
 
     private 

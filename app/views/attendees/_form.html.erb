@@ -155,17 +155,17 @@
      <div class="row">   
         <div class="col-md-2 col-md-offset-1">
             <div class="form-group">
-                <%= f.label "Cell Phone" %>
+                <%= f.label "Cell Phone" %><br /><p class="num-disclaim" style="margin-top: -8px;">( US Numbers Only )</p>
             </div>
         </div>
         <div class="col-md-3">
             <div class="form-group">
-                <%= f.text_field :phone, class: "form-control", placeholder: "Enter Cell Number" %>
+                <%= f.text_field :phone, class: "form-control", placeholder: "e.g. 404-567-8901" %>
             </div>
         </div>
         <div class="col-md-6">
             <div class="form-group">
-                <p class="num-disclaim">(US numbers only)</p>
+                <p class="num-disclaim">(For text messages pertaining to this event only, <span class="goAwaySooner"><br /></span>Enter only area code and number please.)</p>
             </div>
         </div>
     </div>

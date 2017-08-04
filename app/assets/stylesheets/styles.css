@@ -193,7 +193,7 @@ span.badge a {color:#FFFFFF;}
     float:right; margin-top: -60px;
 }
 p.num-disclaim {
-    font-size: .75em !important; padding-top: 9px !important;
+    font-size: .75em !important; padding-top: 2px !important; font-weight: bold;
 }
 
 /** Rockwell Top Bar **/
