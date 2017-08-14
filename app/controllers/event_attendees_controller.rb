@@ -45,13 +45,13 @@ class EventAttendeesController < ApplicationController
         send_blowio(@message, @number)
       end
 
-      if send_blowio()
-        flash[:success] = "Your SMS messages were sent"
-        redirect_to event_path(@event)
-      else
-        flash[:danger] = "Your SMS messages did not send completely"
-        redirect_to event_path(@event)
-      end
+      # if send_blowio()
+      #   flash[:success] = "Your SMS messages were sent"
+      #   redirect_to event_path(@event)
+      # else
+      #   flash[:danger] = "Your SMS messages did not send completely"
+      #   redirect_to event_path(@event)
+      # end
       
     end
 
