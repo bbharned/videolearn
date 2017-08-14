@@ -1,5 +1,5 @@
 <% obj.each do |event| %>
-<% if event.time == nil || event.time >= DateTime.current - 1.days  %> 
+<% if event.endtime == nil || (event.endtime != nil && event.endtime >= DateTime.current + 1.days)  %> 
     
     
 <div align="center">

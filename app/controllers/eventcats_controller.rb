@@ -2,7 +2,7 @@ class EventcatsController < ApplicationController
 	before_action :require_admin, except: [:index, :show]
 
 	def index
-		@ecats = Eventcat.all
+		@ecats = Eventcat.all.order(:endtime)
 	end
 
     def new
@@ -36,7 +36,7 @@ class EventcatsController < ApplicationController
 
 	def show
 		@ecat = Eventcat.find(params[:id])
-        @ecat_events = @ecat.events
+        @ecat_events = @ecat.events.order(:endtime)
 	end
 
 

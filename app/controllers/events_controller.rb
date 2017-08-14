@@ -76,7 +76,7 @@ end
 
 def ereport
     if (logged_in? && current_user.admin?) || (logged_in? && current_user.evtadmin?)
-        @events = Event.all.order(:time).reverse_order
+        @events = Event.all.order(:endtime).reverse_order
         @allregistered = EventAttendee.all.order(:lastname)
     else
         flash[:danger] = "only admins can view reports"
@@ -90,7 +90,7 @@ end
 private
 
     def event_params
-        params.require(:event).permit(:name, :description, :time, :cost, :capacity, eventcat_ids: [], venue_ids: [], user_ids: [])
+        params.require(:event).permit(:name, :description, :time, :endtime, :cost, :capacity, eventcat_ids: [], venue_ids: [], user_ids: [])
     end
 
     def set_event
