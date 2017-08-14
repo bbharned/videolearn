@@ -45,6 +45,9 @@ class EventAttendeesController < ApplicationController
         send_blowio(@message, @number)
       end
 
+      flash[:success] = "Your SMS messages were sent"
+      redirect_to event_path(@event)
+
       # if send_blowio()
       #   flash[:success] = "Your SMS messages were sent"
       #   redirect_to event_path(@event)
