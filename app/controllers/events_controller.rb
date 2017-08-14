@@ -60,7 +60,7 @@ end
 
 
 def destroy
-  @schedules = UserRegister.where(event_id: @event.id)  
+  @schedules = EventAttendee.where(event_id: @event.id)  
   if @event.destroy
     flash[:danger] = "Event has been deleted and removed."
     if @schedules.any?
