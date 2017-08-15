@@ -43,18 +43,20 @@ class EventAttendeesController < ApplicationController
       @phones.each do |number|
         @number = "+1" + number
         send_blowio(@message, @number)
+
+        @status_response = Net::HTTP.get_response(ENV['BLOWERIO_URL'])
+
+        if @status_response.kind_of? Net::HTTPSuccess
+          flash[:success] = "Your SMS messages were sent"
+          redirect_to event_path(@event)
+        else
+          flash[:danger] = "There was a problem sending your sms"
+          redirect_to event_path(@event)
+        end
       end
 
-      flash[:success] = "Your SMS messages were sent"
-      redirect_to event_path(@event)
-
-      # if send_blowio()
-      #   flash[:success] = "Your SMS messages were sent"
-      #   redirect_to event_path(@event)
-      # else
-      #   flash[:danger] = "Your SMS messages did not send completely"
-      #   redirect_to event_path(@event)
-      # end
+      # flash[:success] = "Your SMS messages were sent"
+      # redirect_to event_path(@event)
       
     end
 
