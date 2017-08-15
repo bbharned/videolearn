@@ -68,10 +68,13 @@
                         $('#datetimepicker1').val = <%= @event.time %>;
                         $('#datetimepicker2').val = <%= @event.endtime %>;
                     <% elsif (@event.time == nil or @event.new_record?) and (@event.endtime == nil or @event.new_record?) %>
-                        $('#datetimepicker1').datetimepicker();
-                        $('#datetimepicker2').datetimepicker();
-                        $('#datetimepicker1, #datetimepicker2').data("DateTimePicker").format("YYYY-MM-DD hh:mm A").FUNCTION();
-                        //$('#datetimepicker2').data("DateTimePicker").format("YYYY-MM-DD hh:mm A").FUNCTION();
+                        $('#datetimepicker1').datetimepicker({
+                            format: 'YYYY-MM-DD hh:mm A'
+                        });
+                        $('#datetimepicker2').datetimepicker({
+                            format: 'YYYY-MM-DD hh:mm A'
+                        });
+                        //$('#datetimepicker1, #datetimepicker2').data("DateTimePicker").format("YYYY-MM-DD hh:mm A").FUNCTION();
                     <% end %>
                 });
            });
