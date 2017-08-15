@@ -44,7 +44,8 @@ class EventAttendeesController < ApplicationController
         @number = "+1" + number
         send_blowio(@message, @number)
 
-        @status_response = Net::HTTP.get_response(ENV['BLOWERIO_URL'])
+        @url = URI(ENV['BLOWERIO_URL'])
+        @status_response = Net::HTTP.get_response(@url)
 
         if @status_response.kind_of? Net::HTTPSuccess
           flash[:success] = "Your SMS messages were sent"
