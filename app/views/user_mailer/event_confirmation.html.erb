@@ -17,7 +17,9 @@
 
       <div style="width:90%; max-width: 500px; padding: 10px 20px 20px 20px; background-color: #E6E6E6; border-radius: 20px; margin-bottom: 55px;">
         <h4 style="margin-bottom: 0px; text-decoration: underline;">Event Details</h4>
-        <p><%= @event.time.to_s(:time_display) if @event.time %></p>
+        <p><span style="font-weight:bold;">Start:</span> <%= @event.time.to_s(:time_display) if @event.time %><br />
+          <span style="font-weight:bold;">End:</span> <%= @event.endtime.to_s(:time_display) if @event.endtime %>
+        </p>
         <% if @event.venues.any? %>
         <p><%= @event.venues.last.name %><br /><%= @event.venues.last.street %><br /><%= @event.venues.last.city %>, <%= @event.venues.last.state %> <%= @event.venues.last.zipcode %></p>
         <% end %>

@@ -51,7 +51,7 @@ class EventAttendeesController < ApplicationController
           flash[:success] = "Your SMS messages were sent"
           redirect_to event_path(@event)
         else
-          flash[:danger] = "There was a problem sending your sms"
+          flash[:danger] = "There was a problem sending your sms messages to all recipients"
           redirect_to event_path(@event)
         end
       end

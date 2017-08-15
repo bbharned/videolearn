@@ -12,7 +12,8 @@ Event Description
 
 Event Details
 
-<%= @event.time.to_s(:time_display) if @event.time %>
+Start: <%= @event.time.to_s(:time_display) if @event.time %>
+End: <%= @event.endtime.to_s(:time_display) if @event.endtime %>
 
 <% if @event.venues.any? %>
 <%= @event.venues.last.name %>

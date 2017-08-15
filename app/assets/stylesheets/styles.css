@@ -157,7 +157,7 @@ span.badge a {color:#FFFFFF;}
     height: 150px; text-align: center;
 }
 .event-card img {
-    width:100%; position: relative; top:20%;  
+    width:100%; position: relative;  
 }
 .attendee-checkin-row {
     margin-bottom: 10px;
