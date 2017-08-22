@@ -44,7 +44,7 @@ class EventAttendeesController < ApplicationController
 
 
       @phones.each do |number|
-        if number != nil
+        if number != nil || number != ""
           
           @number = "+1" + number
           send_blowio(@message, @number)
