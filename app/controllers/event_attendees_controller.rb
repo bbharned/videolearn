@@ -49,11 +49,11 @@ class EventAttendeesController < ApplicationController
 
         if @status_response.kind_of? Net::HTTPSuccess
           flash[:success] = "Your SMS messages were sent"
-          redirect_to event_path(@event)
         else
           flash[:danger] = "There was a problem sending your sms messages to all recipients"
-          redirect_to event_path(@event)
         end
+
+        redirect_to event_path(@event)
       end
 
       # flash[:success] = "Your SMS messages were sent"

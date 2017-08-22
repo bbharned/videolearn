@@ -41,7 +41,7 @@ class AttendeesController < ApplicationController
         	@registered = EventAttendee.new(:attendee_id => @attendee.id, :event_id => @event.id, :lastname => @attendee.lastname)
             if @registered.save
                 UserMailer.event_confirmation(@attendee, @event).deliver_now
-            	flash[:success] = "You Are now registered. Thanks for registering"
+            	flash[:success] = "You are now registered. Thanks for registering"
             	redirect_to events_path
             else
             	flash[:danger] = "There was a problem registering for that event"
