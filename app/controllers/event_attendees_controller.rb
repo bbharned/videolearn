@@ -50,8 +50,8 @@ class EventAttendeesController < ApplicationController
         @status_response = Net::HTTP.get_response(@url)
 
         @status_responses.push @status_response
-        
-        rescue RestClient::ExceptionWithResponse => err
+
+        #rescue RestClient::ExceptionWithResponse => err
       end
 
         @status_responses.each do | status |
