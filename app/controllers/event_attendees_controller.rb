@@ -44,15 +44,14 @@ class EventAttendeesController < ApplicationController
 
       @phones.each do |number|
         @number = "+1" + number
-      #begin
         send_blowio(@message, @number)
 
         @url = URI(ENV['BLOWERIO_URL'])
         @status_response = Net::HTTP.get_response(@url)
 
         @status_responses.push @status_response
-      #rescue
-        #next
+        
+        rescue RestClient::ExceptionWithResponse => err
       end
 
         @status_responses.each do | status |
