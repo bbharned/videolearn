@@ -40,9 +40,11 @@ class EventAttendeesController < ApplicationController
       @message = params[:message][:sms_message]
       @event = Event.find(params[:id])
       @status_responses = []
-      @error_responses = 0
+      #@error_responses = 0
+
 
       @phones.each do |number|
+      begin
         @number = "+1" + number
         send_blowio(@message, @number)
 
@@ -50,28 +52,33 @@ class EventAttendeesController < ApplicationController
         @status_response = Net::HTTP.get_response(@url)
 
         @status_responses.push @status_response
-
+      rescue
+        next
+      end
         #rescue RestClient::ExceptionWithResponse => err
       end
 
+
+
+
         @status_responses.each do | status |
           if !status.kind_of? Net::HTTPSuccess
-            @error_responses += 1
-            # flash[:danger] = "There was a problem sending your sms messages to all recipients"
+            #@error_responses += 1
+            flash[:danger] = "There may have been a problem sending your sms messages to all recipients"
             # redirect_to event_path(@event)
-          #else
-            # flash[:success] = "Your SMS messages were sent"
+          else
+            flash[:success] = "Your SMS messages were sent"
             # redirect_to event_path(@event)
           end
         end
 
-        if @error_responses > 0
-          flash[:danger] = "There was a problem sending your sms messages to all recipients"
-          redirect_to event_path(@event)
-        else
-          flash[:success] = "Your SMS messages were sent"
-          redirect_to event_path(@event)
-        end
+        # if @error_responses > 0
+        #   flash[:danger] = "There was a problem sending your sms messages to all recipients"
+        #   redirect_to event_path(@event)
+        # else
+        #   flash[:success] = "Your SMS messages were sent"
+        #   redirect_to event_path(@event)
+        # end
 
         # if @status_responses.kind_of? Net::HTTPSuccess.all?
         #   flash[:success] = "Your SMS messages were sent"
@@ -79,7 +86,7 @@ class EventAttendeesController < ApplicationController
         #   flash[:danger] = "There was a problem sending your sms messages to all recipients"
         # end
 
-        #redirect_to event_path(@event)
+        redirect_to event_path(@event)
       
 
       # flash[:success] = "Your SMS messages were sent"
