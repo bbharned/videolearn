@@ -44,17 +44,17 @@ class EventAttendeesController < ApplicationController
 
 
       @phones.each do |number|
-      begin
-        @number = "+1" + number
-        send_blowio(@message, @number)
+        if number != nil || number != ""
+          
+          @number = "+1" + number
+          send_blowio(@message, @number)
 
-        @url = URI(ENV['BLOWERIO_URL'])
-        @status_response = Net::HTTP.get_response(@url)
+          @url = URI(ENV['BLOWERIO_URL'])
+          @status_response = Net::HTTP.get_response(@url)
 
-        @status_responses.push @status_response
-      rescue
-        next
-      end
+          @status_responses.push @status_response
+        
+        end
         #rescue RestClient::ExceptionWithResponse => err
       end
 
@@ -101,6 +101,9 @@ class EventAttendeesController < ApplicationController
     def send_blowio(message, number)
       blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
       blowerio['/messages'].post :to => number, :message => message
+      if RestClient::Response == RestClient::BadRequest
+        break
+      end
     end
 
     def set_phones
