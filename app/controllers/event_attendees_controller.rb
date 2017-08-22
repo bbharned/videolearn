@@ -39,6 +39,7 @@ class EventAttendeesController < ApplicationController
     def sendit
       @message = params[:message][:sms_message]
       @event = Event.find(params[:id])
+      @status_responses = []
 
       @phones.each do |number|
         @number = "+1" + number
@@ -47,14 +48,26 @@ class EventAttendeesController < ApplicationController
         @url = URI(ENV['BLOWERIO_URL'])
         @status_response = Net::HTTP.get_response(@url)
 
-        if @status_response.kind_of? Net::HTTPSuccess
-          flash[:success] = "Your SMS messages were sent"
-        else
-          flash[:danger] = "There was a problem sending your sms messages to all recipients"
+        @status_responses.push @status_response
+
+      end
+
+        @status_responses.each do | status |
+          if !status.kind_of? Net::HTTPSuccess
+            flash[:danger] = "There was a problem sending your sms messages to all recipients"
+          else
+            flash[:success] = "Your SMS messages were sent"
+          end
         end
 
+        # if @status_responses.kind_of? Net::HTTPSuccess.all?
+        #   flash[:success] = "Your SMS messages were sent"
+        # else
+        #   flash[:danger] = "There was a problem sending your sms messages to all recipients"
+        # end
+
         redirect_to event_path(@event)
-      end
+      
 
       # flash[:success] = "Your SMS messages were sent"
       # redirect_to event_path(@event)
