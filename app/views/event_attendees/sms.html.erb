@@ -10,6 +10,14 @@
 	<div class="row">
         <div class="col-md-8 col-md-offset-2">
             <div class="form-group">
+                <%= m.text_field :sms_subject, class: "form-control", placeholder: "Enter SMS Subject" %>
+            </div>
+        </div>
+    </div>
+    
+    <div class="row">
+        <div class="col-md-8 col-md-offset-2">
+            <div class="form-group">
                 <%= m.text_area :sms_message, size: "24x12", class: "form-control", placeholder: "Enter SMS Message" %>
             </div>
             

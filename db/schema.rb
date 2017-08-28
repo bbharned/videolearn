@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170814135801) do
+ActiveRecord::Schema.define(version: 20170828131755) do
 
   create_table "answers", force: :cascade do |t|
     t.string   "name"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170814135801) do
     t.string   "state"
     t.integer  "zip"
     t.string   "phone"
+    t.string   "carrier"
   end
 
   create_table "categories", force: :cascade do |t|

@@ -37,60 +37,19 @@ class EventAttendeesController < ApplicationController
     end
 
     def sendit
+      
       @message = params[:message][:sms_message]
+      @subject = params[:message][:sms_subject]
       @event = Event.find(params[:id])
-      @status_responses = []
-      #@error_responses = 0
-
-
-      @phones.each do |number|
-        if number != nil || number != ""
-          
-          @number = "+1" + number
-          send_blowio(@message, @number)
-
-          @url = URI(ENV['BLOWERIO_URL'])
-          @status_response = Net::HTTP.get_response(@url)
-
-          @status_responses.push @status_response
-        
+      
+      @evt_users.where.not(carrier: "").each do |attendee|
+        if (attendee.phone != nil || attendee.phone != "") && attendee.carrier != nil
+          send_sms(attendee.phone, @subject, attendee.carrier, @message)
         end
-        #rescue RestClient::ExceptionWithResponse => err
       end
 
-
-
-
-        @status_responses.each do | status |
-          if !status.kind_of? Net::HTTPSuccess
-            #@error_responses += 1
-            flash[:danger] = "There may have been a problem sending your sms messages to all recipients"
-            # redirect_to event_path(@event)
-          else
-            flash[:success] = "Your SMS messages were sent"
-            # redirect_to event_path(@event)
-          end
-        end
-
-        # if @error_responses > 0
-        #   flash[:danger] = "There was a problem sending your sms messages to all recipients"
-        #   redirect_to event_path(@event)
-        # else
-        #   flash[:success] = "Your SMS messages were sent"
-        #   redirect_to event_path(@event)
-        # end
-
-        # if @status_responses.kind_of? Net::HTTPSuccess.all?
-        #   flash[:success] = "Your SMS messages were sent"
-        # else
-        #   flash[:danger] = "There was a problem sending your sms messages to all recipients"
-        # end
-
-        redirect_to event_path(@event)
-      
-
-      # flash[:success] = "Your SMS messages were sent"
-      # redirect_to event_path(@event)
+      flash[:success] = "Your SMS messages were sent"
+      redirect_to event_path(@event)
       
     end
 
@@ -98,9 +57,13 @@ class EventAttendeesController < ApplicationController
 
     private 
 
-    def send_blowio(message, number)
-      blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
-      blowerio['/messages'].post :to => number, :message => message
+    # def send_blowio(message, number)
+    #   blowerio = RestClient::Resource.new(ENV['BLOWERIO_URL'])
+    #   blowerio['/messages'].post :to => number, :message => message
+    # end
+
+    def send_sms(number, subject, carrier, message)
+      SMSMailer.sms_mailer(number, subject, carrier, message).deliver_now
     end
 
     def set_phones

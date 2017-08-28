@@ -172,6 +172,27 @@
         </div>
     </div>
     
+    <div class="row">
+        <div class="col-md-2 col-md-offset-1">
+            <div class="form-group">
+                <%= f.label "Cell Carrier" %>
+            </div>
+        </div>
+        <div class="col-md-2">
+            <div class="form-group">
+                <%= f.select :carrier, options_for_select([
+              [ ],
+              ["AT&T", "at&t"], 
+              ["Verizon", "verizon"], 
+              ["Sprint", "sprint"],
+              ["T-Mobile", "t-mobile"], 
+              ["Boost", "boost"],
+              ["Cricket Wireless", "cricket"],
+              ["Metro PCS", "metropcs"]
+              ], @attendee.carrier), class: "form-control" %>
+            </div>
+        </div>
+    </div>
 
      <div class="row">   
         <div class="col-md-2 col-md-offset-1">
