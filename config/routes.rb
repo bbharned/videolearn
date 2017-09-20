@@ -21,6 +21,7 @@ Rails.application.routes.draw do
 	resources :attendees
 
 	get 'dashboard', to: 'pages#dashboard'
+	get 'dropbox', to: 'pages#dropbox'
 
 	get 'pages/users/filter_company', to: 'users#filter_company'
 	get 'pages/users/filter_login', to: 'users#filter_login'
