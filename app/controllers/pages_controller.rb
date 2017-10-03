@@ -110,11 +110,53 @@ class PagesController < ApplicationController
                 end
             end 
         end
+
+
+        #### Visualization Badge ####
+        @catvis_user_watch = 0
+        @catvis_user_quiz = 0
+        @vis_videos.each do |video|
+            @uvvquery = UserVideo.where(user_id: @user.id, video_id: video.id)
+            if @uvvquery != [] 
+                @catvis_user_watch += 1
+            end
+            video.quizzes.each do |quiz|
+                @uvqquery = UserQuiz.where(user_id: @user.id, quiz_id: quiz.id)
+                    if @uvqquery != []
+                        @catvis_user_quiz += 1
+                    end
+                end
+        end
+        
+        if (@vis_videos.count == @catvis_user_watch) && (@catvis_user_quiz == @vis_videos.count) && @catvis_user_watch > 0
+            if  @badge == nil
+                @newvisbadge = UserBadge.new(user_id: @user.id, visualization: true)
+               if @newvisbadge.save
+                    #when visualization badge is awarded
+                    flash[:success] = "You earned your VISUALIZATION badge!"
+                    redirect_to dashboard_path 
+               else
+
+               end
+            elsif @badge != nil && !@badge.visualization
+                if @badge.update(visualization: true)
+                    flash[:success] = "You earned your VISUALIZATION badge!"
+                    redirect_to dashboard_path
+                else
+                    flash[:danger] = "There was a problem awarding your badge."
+                    redirect_to dashboard_path
+                end
+            end 
+        end
         
 
+        #### Security Badge ####
 
+            #Coming Soon#
 
+        #### Mobility Badge ####
 
+            #Coming Soon#
 
 
     end

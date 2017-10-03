@@ -132,6 +132,15 @@
 	<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://learn.thinmanager.com&title=I%20Just%20Earned%20A%20Badge%20From%20ThinManager!&source=https://learn.thinmanager.com" target="_blank" class="btn btn-linkedin"><div class="fa-linkedin"><%= image_tag("LinkedIn.png") %></div><p>Share on LinkedIn!</p></a>
 </div>
 
+<div class="award" id="visAward">
+	<div class="closeIt"></div>
+	<h1>Congratulations!</h1>
+	<p>You earned a badge</p>
+	<div class="badge-image"><%= image_tag("badge-visualization.png") %></div>
+	<!-- LinkedIn -->
+	<a href="http://www.linkedin.com/shareArticle?mini=true&url=https://learn.thinmanager.com&title=I%20Just%20Earned%20A%20Badge%20From%20ThinManager!&source=https://learn.thinmanager.com" target="_blank" class="btn btn-linkedin"><div class="fa-linkedin"><%= image_tag("LinkedIn.png") %></div><p>Share on LinkedIn!</p></a>
+</div>
+
 <%= render 'layouts/ctas' %>
 
 <% if (flash[:success] == "You earned your PRODUCTIVITY badge!") %>
@@ -145,6 +154,19 @@
 		})();
 		$('.closeIt').on ("click", function(e) {
 			$('#prodAward').trigger('close');
+		});
+	</script>
+<% elsif (flash[:success] == "You earned your VISUALIZATION badge!") %>
+	<script>
+		(function() {
+			$('#visAward').lightbox_me({
+			centered: true, 
+			zIndex: 9999,
+			overlayCSS: {background: '#000000', opacity:.85},
+			});
+		})();
+		$('.closeIt').on ("click", function(e) {
+			$('#visAward').trigger('close');
 		});
 	</script>
 <% end %>
