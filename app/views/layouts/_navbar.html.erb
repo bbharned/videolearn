@@ -77,6 +77,20 @@
         <% end %>
       </ul>
       
+      <% if logged_in? %>
+      <ul class="nav navbar-nav">  
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Resources <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="http://www.thinmanager.com/video/" target="_blank">ThinManager Marketing Videos</a></li>
+            <li><a href="http://www.thinmanager.com/si" target="_blank">SI Certification</a></li>
+            <li><a href="http://www.thinmanager.com/support/manuals/" target="_blank">ThinManager Manuals</a></li>
+          </ul>
+        </li>
+      </ul>
+      <% end %>
+      
+      
       <ul class="nav navbar-nav navbar-right">
         <li style="font-style:italic; padding-right:50px; font-size: .85em;"><a href="mailto:bharned@thinmanager.com?subject=Video Learning Issue Report"">Having technical issues?</a></li>
         <% if logged_in? %>
