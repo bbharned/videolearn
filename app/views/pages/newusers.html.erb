@@ -149,7 +149,7 @@
 <% if @octnewusers.any? %>
 <h4>October New Users</h4>
 <div class="well well-sm" style="margin: auto;">
-<% @novnewusers.each do |user| %>
+<% @octnewusers.each do |user| %>
 	 
     <div class="row">
     <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
@@ -165,7 +165,7 @@
 <% if @novnewusers.any? %>
 <h4>November New Users</h4>
 <div class="well well-sm" style="margin: auto;">
-<% @decnewusers.each do |user| %>
+<% @novnewusers.each do |user| %>
 	 
     <div class="row">
     <div class="col-sm-3"><%= link_to "#{user.lastname}, #{ user.firstname}", user_path(user) %></div>
