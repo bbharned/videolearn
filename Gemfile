@@ -6,6 +6,7 @@ ruby '2.5.7'
 gem 'rails', '~> 5.0.0', '>= 5.0.0.1'
 
 gem 'twitter-bootstrap-rails'
+#gem 'bootstrap', '~> 4.3.1'
 
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate', '0.0.10'
