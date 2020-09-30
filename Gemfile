@@ -18,8 +18,8 @@ gem 'rest-client'
 gem 'puma', '~> 3.0'
 # Use SCSS for stylesheets
 gem "bootstrap-sass", ">= 3.4.1"
-gem 'sass-rails', '~> 5.0'
-#gem 'sassc'
+gem 'sass-rails'
+gem 'sassc'
 gem "nokogiri", ">= 1.10.8"
 gem "rack", ">= 2.0.8"
 # Use Uglifier as compressor for JavaScript assets
