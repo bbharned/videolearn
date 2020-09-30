@@ -17,7 +17,12 @@
 !/log/.keep
 !/tmp/.keep
 
-# Ignore Byebug command history file.
+/node_modules
+/yarn-error.log
+
 .byebug_history
 
 **/.DS_Store
+
+# Ignore encrypted secrets key file.
+config/secrets.yml.key
