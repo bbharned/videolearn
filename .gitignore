@@ -14,8 +14,11 @@
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
+/tmp/pids/*
 !/log/.keep
 !/tmp/.keep
+!/tmp/pids
+!/tmp/pids/.keep
 
 # Ignore uploaded files in development
 /storage/*
@@ -26,6 +29,9 @@
 
 /public/assets
 .byebug_history
+
+# Ignore encrypted secrets key file.
+/config/secrets.yml.key
 
 # Ignore master key for decrypting credentials and more.
 /config/master.key
