@@ -17,12 +17,15 @@
 !/log/.keep
 !/tmp/.keep
 
+# Ignore uploaded files in development
+/storage/*
+!/storage/.keep
+
 /node_modules
 /yarn-error.log
 
+/public/assets
 .byebug_history
 
-**/.DS_Store
-
-# Ignore encrypted secrets key file.
-config/secrets.yml.key
+# Ignore master key for decrypting credentials and more.
+/config/master.key
