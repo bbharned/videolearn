@@ -14,6 +14,8 @@ gem 'bootstrap-will_paginate', '0.0.10'
 
 gem 'momentjs-rails', '>= 2.9.0'
 gem 'bootstrap3-datetimepicker-rails', '~> 4.17.37'
+gem "aws-sdk-s3", require: false
+
 gem 'rest-client'
 # Use Puma as the app server
 gem 'puma', '~> 3.11'
