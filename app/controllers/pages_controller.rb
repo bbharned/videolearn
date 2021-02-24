@@ -1,10 +1,14 @@
 class PagesController < ApplicationController
-	before_action :require_user, except: [:index]
+	before_action :require_user, except: [:index, :maintenance]
     before_action :require_admin, only: [:stats, :newusers]
 
     def index
         @user = User.new
         redirect_to dashboard_path if logged_in?
+    end
+
+    def maintenance
+
     end
 
     def dropbox
