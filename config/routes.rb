@@ -5,8 +5,8 @@ Rails.application.routes.draw do
 
 	get 'password_resets/edit'
 
-	root 'pages#index'
-	# root 'pages#maintenance'
+	# root 'pages#index'
+	root 'pages#maintenance'
 
 	get 'signup', to: 'users#new'
 	resources :users, except: [:new]

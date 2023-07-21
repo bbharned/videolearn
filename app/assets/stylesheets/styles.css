@@ -410,7 +410,7 @@ p.num-disclaim {
 #footer {
     width:100%; background-color:#323232;  border-top:thin solid #5C5C5C;
     font-family: 'Roboto', sans-serif; color:#ffffff; min-height:330px; 
-    padding-bottom:65px;
+    padding-bottom:65px; display:none;
 }
 .lower-footer-boxes h4 {
     line-height:30px !important; color:#878686;
@@ -442,7 +442,7 @@ p.num-disclaim {
 /* Disclaimer box css */
 #disclaimer {
     width:100%; background-color:#000000; padding-top:15px; padding-bottom: 25px; margin-bottom: -20px !important;
-    color:#666666; 
+    color:#666666; display:none;
 }
 .disLogo {
     opacity:.4;
